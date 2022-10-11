@@ -1,14 +1,17 @@
 # My Personal Project
-This project will be an Enigma machine simulator.
+This project will be a Cipher text generator.
+#### Motivation behind the project
+I've always been interested in cryptography and encryption, and I thought I'd take a shot at it for my CPSC210 class:)
+
+## Who would use this project?
+Any individual who wants to implement basic cipher techniques for their messages
 ## Features of this project
+- Multiple Cipher techniques.
+- All ciphered text can be decrypted provided that the cipher method is known.
 
-
-- As a user I will be able to key in a message to be encrypted.
-- A user can decrypt my message by setting the simulator to the same settings as mine and arrive at the decrypted message
-- The encrypted message will be **platform independent**. i.e- it can be decrypted on any enigma machine, real or virtual.
-- I want to also be able to hide messages via steganography.
  
 ### User stories
-- As a user, I want to be able to encrypt my messages and see a history of it. 
-- As a user, I want to be able to clearly see the settings of my enigma machine.
-- As a user, I want my encrypted message to automatically be copied to my clipboard
+- As a user, I want to be able to run my message through a cipher of my choice. 
+- As a user, I want to be able to clearly see the encryption steps .
+- As a user, I want to be able to run an encrypted message through a decrypt function.
+- As a user, I want to be able to run one message through multiple encryption algorithms to increase security. 
