@@ -3,12 +3,9 @@ package model;
 import java.util.Scanner;
 
 public class SubstitutionCipher {
-    static Scanner sc = new Scanner(System.in);
-
-    public static String substitutionCipher(String toBeEncrypted) {
+    public static String substitutionCipher(String toBeEncrypted, int moveBy) {
         String toBeEncrypt = toBeEncrypted;
-        System.out.println("How much do you want to move by?");
-        int moveBy = sc.nextInt();
+
         toBeEncrypt = toBeEncrypt.toLowerCase();
         char[] a = new char[toBeEncrypt.length()];
         for (int i = 0; i < toBeEncrypt.length(); i++) {
@@ -29,6 +26,6 @@ public class SubstitutionCipher {
         for (int i = 0; i < toBeEncrypt.length(); i++) {
             encrypted = encrypted + a[i];
         }
-        return encrypted;
+        return encrypted.toUpperCase();
     }
 }
