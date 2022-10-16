@@ -28,7 +28,7 @@ public class PolyAlphabeticCipher {
         return encrypted;
     }
 
-    //decrpyhers the encrypted text by reversing the encryption process
+    //decyphers the encrypted text by reversing the encryption process
     public static String decypher(String encrypted, String keyword) {
         String original = "";
         for (int i = 0; i < encrypted.length() && i < keyword.length(); i++) {
