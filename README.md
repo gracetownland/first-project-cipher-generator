@@ -13,5 +13,5 @@ Any individual who wants to implement basic cipher techniques for their messages
 ### User stories
 - As a user, I want to be able to run my message through a cipher of my choice. 
 - As a user, I want to be able to clearly see the encryption steps .
-- As a user, I want to be able to run an encrypted message through a decrypt function.
+- As a user, I want to be able to run an encrypted message through a decrypt function for Poly Alphabetic Cipher and Substituion Ciphers.
 - As a user, I want to be able to run one message through multiple encryption algorithms to increase security. 

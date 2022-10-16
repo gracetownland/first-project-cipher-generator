@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestPolyAlphabeticCipher {
     PolyAlphabeticCipher cipher;
@@ -13,7 +12,7 @@ public class TestPolyAlphabeticCipher {
        cipher=new PolyAlphabeticCipher();
     }
     @Test
-    public void TestPolyAlphabeticCipher(){
+    public void TestPolyAlphabeticCipherSimple(){
         String toBeEncrypted="ABCDEF";
         String keyword="ayush";
         keyword=keyword.toUpperCase();
