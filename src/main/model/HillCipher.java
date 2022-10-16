@@ -1,4 +1,6 @@
 package model;
+/*Each letter is represented as a number%26.
+encrypting a message-> each block of n letters is multiplied by n*n matrix %26. */
 
 public class HillCipher {
     public static void getMatrixKey(String keyword, int[][] matrixKey) {

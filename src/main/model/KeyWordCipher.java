@@ -4,8 +4,7 @@ public class KeyWordCipher {
     public static String encoder(char[] key) {
         String code = "";
 
-        // This array represents the
-        // 26 letters of alphabets
+
         boolean[] arr = new boolean[26];
 
         // This loop inserts the keyword
