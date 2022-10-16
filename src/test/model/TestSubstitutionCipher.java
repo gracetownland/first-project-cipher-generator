@@ -32,5 +32,5 @@ class TestSubstitutionCipher {
         String unEncrypted= cipher.substitutionCipher(Encrypted,-1);
         assertEquals("ABCDEF",unEncrypted);
     }
-    // delete or rename this class!
+
 }

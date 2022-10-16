@@ -1,6 +1,7 @@
 package model;
 
 public class PolyAlphabeticCipher {
+    //keyword is repeated until it is the same length of the word to be encrypted
     public static String keywordgenerator(String toBeEncrypted, String keyword) {
         int l = toBeEncrypted.length();
         for (int i = 0; ; i++) {
@@ -16,6 +17,7 @@ public class PolyAlphabeticCipher {
         return keyword;
     }
 
+    //returns encrypted text by vignere cypher method
     public static String cypher(String toBeEncrypted, String keyword) {
         String encrypted = "";
         for (int i = 0; i < toBeEncrypted.length(); i++) {
@@ -26,6 +28,7 @@ public class PolyAlphabeticCipher {
         return encrypted;
     }
 
+    //decrpyhers the encrypted text by reversing the encryption process
     public static String decypher(String encrypted, String keyword) {
         String original = "";
         for (int i = 0; i < encrypted.length() && i < keyword.length(); i++) {
@@ -36,3 +39,4 @@ public class PolyAlphabeticCipher {
         return original;
     }
 }
+
