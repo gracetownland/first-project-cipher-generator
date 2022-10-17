@@ -1,8 +1,11 @@
 package model;
 
 public class PolyAlphabeticCipher {
-    //keyword is repeated until it is the same length of the word to be encrypted
-    public static String keywordgenerator(String toBeEncrypted, String keyword) {
+    /*
+
+       MODIFIES: keyword
+       EFFECTS:returns keyword repeated until same length as message
+       */    public static String keywordgenerator(String toBeEncrypted, String keyword) {
         int l = toBeEncrypted.length();
         for (int i = 0; ; i++) {
 

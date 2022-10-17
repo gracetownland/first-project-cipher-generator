@@ -12,6 +12,8 @@ import java.util.Scanner;
   EFFECTS:runs the application
   */
 public class CipherTextGenerator {
+    static Scanner sc = new Scanner(System.in);
+
     public CipherTextGenerator() {
         runCipher();
     }
@@ -30,6 +32,108 @@ public class CipherTextGenerator {
         System.out.println("Press 7 to exit");
         System.out.println("Press any other number to repeat the menu.");
     }
+    /*
+      MODIFIES: toBeEncrypted,moveBy
+      EFFECTS:displays substitution cipher option
+      */
+
+    public static void subcipher() {
+        SubstitutionCipher cipher = new SubstitutionCipher();
+        System.out.println("SUBSTITUTION CIPHER");
+        System.out.println("Enter a Sentence");
+        String toBeEncrypted = sc.next();
+        System.out.println("How much do you want to move by?");
+        int moveBy = sc.nextInt();
+        System.out.println("Shifting all the letters " + moveBy + " places");
+        System.out.println("The original text is " + toBeEncrypted);
+        System.out.println("The encrypted text is " + cipher.substitutionCipher(toBeEncrypted, moveBy));
+    }
+ /*
+      MODIFIES: toBeEncrypted,keyword
+      EFFECTS:displays keyword cipher option
+      */
+
+    public static void keycipher() {
+        KeyWordCipher cipher = new KeyWordCipher();
+        System.out.println("KEYWORD CIPHER");
+        System.out.println("enter keyword ");
+        String keyword = KeyWordCipher.encoder(sc.next().toCharArray());
+        System.out.println("The Keyword array is" + keyword);
+        System.out.println("Enter a sentence");
+        String toBeEncrypted = sc.next();
+        System.out.println("Swapping letters of message with keyword array....");
+        System.out.println("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        System.out.println(keyword);
+        System.out.println("The encrypted text is " + cipher.cipheredIt(toBeEncrypted, keyword));
+    }
+
+    /*
+         MODIFIES: toBeEncrypted,keyword
+         EFFECTS:displays polyalphabetic cipher option
+         */
+    public static void polycipher() {
+        PolyAlphabeticCipher cipher = new PolyAlphabeticCipher();
+        System.out.println("POLYALPHABETIC CIPHER");
+        System.out.println("Enter a sentence");
+        String toBeEncrypted = sc.next();
+        System.out.println("enter keyword ");
+        String keyword = sc.next();
+        toBeEncrypted = toBeEncrypted.toUpperCase();
+        keyword = keyword.toUpperCase();
+        String key = cipher.keywordgenerator(toBeEncrypted, keyword);
+        System.out.println("The Keyword array is" + key);
+        String encrypt = cipher.cypher(toBeEncrypted, key);
+        System.out.println("The original text is " + toBeEncrypted);
+        System.out.println("The encrypted text is" + encrypt);
+    }
+ /*
+      MODIFIES: toBeEncrypted,keyword
+      EFFECTS:displays hill cipher option
+      */
+
+    public static void hillcipher() {
+        HillCipher cipher = new HillCipher();
+        System.out.println("HILL CIPHER");
+        System.out.println("Enter a sentence");
+        String toBeEncrypted = sc.next();
+        System.out.println("enter keyword ");
+        String keyword = sc.next();
+        System.out.println("The encrypted text is" + cipher.hillCipher(toBeEncrypted, keyword));
+
+    }
+
+    /*
+        MODIFIES: toBeEncrypted,keyword
+        EFFECTS:displays polyalphabetic decipher option
+        */
+    public static void polydecipher() {
+        System.out.println("POLYALPHABETIC DECIPHER");
+        PolyAlphabeticCipher cipher = new PolyAlphabeticCipher();
+        System.out.println("Enter a sentence");
+        String toBeDencrypted = sc.next();
+        System.out.println("enter keyword ");
+        String keyword = sc.next();
+        toBeDencrypted = toBeDencrypted.toUpperCase();
+        keyword = keyword.toUpperCase();
+        String key = cipher.keywordgenerator(toBeDencrypted, keyword);
+        System.out.println("The Keyword array is" + key);
+        String decrypt = PolyAlphabeticCipher.decypher(toBeDencrypted, key);
+        System.out.println("The decrypted text is " + decrypt);
+    }
+
+    /*
+          MODIFIES: toBeEncrypted,keyword
+          EFFECTS:displays keyword decipher option
+          */
+    public static void subdecipher() {
+        SubstitutionCipher cipher = new SubstitutionCipher();
+        System.out.println("SUBSTITUTION CIPHER");
+        System.out.println("Enter a Sentence");
+        String toBeEncrypted = sc.next();
+        System.out.println("How much do you want to move by?");
+        int moveBy = sc.nextInt();
+        System.out.println("The decrypted text is " + cipher.substitutionCipher(toBeEncrypted, -moveBy));
+    }
 
     /*
   REQUIRES: ch is a digit
@@ -44,62 +148,26 @@ public class CipherTextGenerator {
             displayMenu();
             ch = sc.nextInt();
             if (ch == 1) {
-                SubstitutionCipher cipher = new SubstitutionCipher();
-                System.out.println("SUBSTITUTION CIPHER");
-                System.out.println("Enter a Sentence");
-                String toBeEncrypted = sc.next();
-                System.out.println("How much do you want to move by?");
-                int moveBy = sc.nextInt();
-                System.out.println("The decrypted text is " + cipher.substitutionCipher(toBeEncrypted, moveBy));
+                subcipher();
             }
             if (ch == 2) {
-                KeyWordCipher cipher = new KeyWordCipher();
-                System.out.println("KEYWORD CIPHER");
-                System.out.println("enter keyword ");
-                String keyword = KeyWordCipher.encoder(sc.next().toCharArray());
-                System.out.println("Enter a sentence");
-                String toBeEncrypted = sc.next();
-                System.out.println("The decrypted text is " + cipher.cipheredIt(toBeEncrypted, keyword));
+                keycipher();
             }
             if (ch == 3) {
-                PolyAlphabeticCipher cipher = new PolyAlphabeticCipher();
-                System.out.println("POLYALPHABETIC CIPHER");
-                System.out.println("Enter a sentence");
-                String toBeEncrypted = sc.next();
-                System.out.println("enter keyword ");
-                String keyword = sc.next();
-                toBeEncrypted = toBeEncrypted.toUpperCase();
-                keyword = keyword.toUpperCase();
-                String key = cipher.keywordgenerator(toBeEncrypted, keyword);
-                String encrypt = cipher.cypher(toBeEncrypted, key);
-                System.out.println("The encrypted text is" + encrypt);
-
-                System.out.println(toBeEncrypted);
-                System.out.println(key);
-                System.out.println(encrypt);
-                String decrypt = PolyAlphabeticCipher.decypher(encrypt, key);
-                System.out.println("The decrypted text is " + decrypt);
-
+                polycipher();
             }
             if (ch == 4) {
-                HillCipher cipher = new HillCipher();
-                System.out.println("HILL CIPHER");
-                System.out.println("Enter a sentence");
-                String toBeEncrypted = sc.next();
-                System.out.println("enter keyword ");
-                String keyword = sc.next();
-                System.out.println("The encrypted text is" + cipher.hillCipher(toBeEncrypted, keyword));
-
+                hillcipher();
             }
             if (ch == 5) {
-                System.out.println("POLYALPHABETIC DECIPHER");
-
+                polydecipher();
+            }
+            if (ch == 6) {
+                subdecipher();
             }
             if (ch == 7) {
                 System.out.println("Thank you");
                 break;
-            } else {
-                continue;
             }
         }
     }
