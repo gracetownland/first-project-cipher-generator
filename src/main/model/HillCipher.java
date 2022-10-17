@@ -3,6 +3,8 @@ package model;
 encrypting a message-> each block of n letters is multiplied by n*n matrix %26. */
 
 public class HillCipher {
+    /*  MODIFIES: this
+     *   EFFECTS:key matrix is genetated*/
     public static void getMatrixKey(String keyword, int[][] matrixKey) {
         int a = 0;
         for (int i = 0; i < 5; i++) {
@@ -13,6 +15,10 @@ public class HillCipher {
         }
     }
 
+    /*
+        MODIFIES:this
+        EFFECTS: encrypts the message using matrixKey
+     */
     public static void encrypt(int[][] matrixCipher, int[][] matrixKey, int[][] message) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 1; j++) {
@@ -25,6 +31,10 @@ public class HillCipher {
         }
     }
 
+    /*
+           MODIFIES:this
+           EFFECTS: implements Hill Cipher
+        */
     public static String hillCipher(String encrypt, String keyword) {
         int[][] matrixKey = new int[5][5];
         getMatrixKey(keyword, matrixKey);

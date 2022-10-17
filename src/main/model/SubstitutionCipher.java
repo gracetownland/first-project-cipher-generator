@@ -1,9 +1,11 @@
 package model;
 
 import java.util.Scanner;
+/*Moves each character by the desired amount and returns the ciphered text. */
 
 public class SubstitutionCipher {
-    /*Moves each character by the desired amount and returns the ciphered text. */
+    /*  MODIFIES: this
+     *   EFFECTS:implements substitution cipher*/
     public static String substitutionCipher(String toBeEncrypted, int moveBy) {
         String toBeEncrypt = toBeEncrypted;
 
@@ -19,9 +21,6 @@ public class SubstitutionCipher {
             //shifts position of each character by desired amount
             if ((int) a[i] + moveBy < 122) {
                 a[i] = (char) ((int) a[i] + moveBy);
-            } else {
-                a[i] = (char) ((int) a[i] - 25 + moveBy);
-
             }
         }
         String encrypted = "";

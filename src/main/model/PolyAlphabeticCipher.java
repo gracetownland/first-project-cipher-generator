@@ -5,9 +5,7 @@ public class PolyAlphabeticCipher {
     public static String keywordgenerator(String toBeEncrypted, String keyword) {
         int l = toBeEncrypted.length();
         for (int i = 0; ; i++) {
-            if (l == i) {
-                i = 0;
-            }
+
             if (keyword.length() == toBeEncrypted.length()) {
                 break;
             }
@@ -17,7 +15,12 @@ public class PolyAlphabeticCipher {
         return keyword;
     }
 
-    //returns encrypted text by vignere cypher method
+    /*
+    REQUIRES: toBeEncrypted.length()>keyword.length
+    MODIFIES: encrypted
+    EFFECTS:returns encrypted text by vignere cypher method
+    */
+
     public static String cypher(String toBeEncrypted, String keyword) {
         String encrypted = "";
         for (int i = 0; i < toBeEncrypted.length(); i++) {
@@ -28,7 +31,10 @@ public class PolyAlphabeticCipher {
         return encrypted;
     }
 
-    //decyphers the encrypted text by reversing the encryption process
+    /*
+        MODIFIES: original
+        EFFECTS:deciphers the encrypted text by reversing the encryption process
+        */
     public static String decypher(String encrypted, String keyword) {
         String original = "";
         for (int i = 0; i < encrypted.length() && i < keyword.length(); i++) {

@@ -20,6 +20,14 @@ public class TestPolyAlphabeticCipher {
         assertEquals("AZWVLF",cipher.cypher(toBeEncrypted,key));
     }
     @Test
+    public void TestPolyAlphabeticCipherSameLengthKeyword(){
+        String toBeEncrypted="ABCDEF";
+        String keyword="ayusha";
+        keyword=keyword.toUpperCase();
+        String key=cipher.keywordgenerator(toBeEncrypted,keyword);
+        assertEquals("AZWVLF",cipher.cypher(toBeEncrypted,key));
+    }
+    @Test
     public void TestPolyAlphabeticCipherDecode(){
         String Encrypted="AZWVLF";
         String keyword="ayush";

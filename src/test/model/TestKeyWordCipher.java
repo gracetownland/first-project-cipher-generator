@@ -9,15 +9,28 @@ public class TestKeyWordCipher {
     KeyWordCipher cipher;
 
     @BeforeEach
-    void setup(){
-        cipher=new KeyWordCipher();
+    void setup() {
+        cipher = new KeyWordCipher();
     }
 
     @Test
-    void testKeyWordCipherSimple(){
+    void testKeyWordCipherSimple() {
         String keyword = cipher.encoder("thisiscool".toCharArray());
         String toBeEncrypted = "ayushfeelsverycoolbutwantsto";
-        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK",cipher.cipheredIt(toBeEncrypted,keyword));
+        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK", cipher.cipheredIt(toBeEncrypted, keyword));
+    }
+
+    @Test
+    void testKeyWordCipherSimpleCAPS() {
+        String keyword = cipher.encoder("THISISCOOL".toCharArray());
+        String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO";
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", cipher.cipheredIt(toBeEncrypted, keyword));
+    }
+    @Test
+    void testKeyWordCipherSpecialChar() {
+        String keyword = cipher.encoder("THISISCOOL".toCharArray());
+        String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO$";
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK$", cipher.cipheredIt(toBeEncrypted, keyword));
     }
 
 }

@@ -18,6 +18,12 @@ class TestSubstitutionCipher {
         assertEquals("BCDEFG",unEncrypted);
     }
     @Test
+    public void TestSimpleSubSpecial(){
+        String toBeEncrypted="abcdef";
+        String unEncrypted= cipher.substitutionCipher(toBeEncrypted,1);
+        assertEquals("BCDEFG",unEncrypted);
+    }
+    @Test
     public void TestSimpleSubMultiple(){
         String toBeEncrypted="ABCDEF";
         String toBeEncrypted2= cipher.substitutionCipher(toBeEncrypted,1);
