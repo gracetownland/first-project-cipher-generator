@@ -21,7 +21,7 @@ public class CipherTextGenerator {
     /*
   EFFECTS:displays menu
   */
-    public static void displayMenu() {
+    public  void displayMenu() {
         System.out.println("Welcome to the Cipher Text Generator");
         System.out.println("Press 1 for a substitution cipher!");
         System.out.println("Press 2 for a keyword cipher!");
@@ -37,7 +37,7 @@ public class CipherTextGenerator {
       EFFECTS:displays substitution cipher option
       */
 
-    public static void subcipher() {
+    public  void subcipher() {
         SubstitutionCipher cipher = new SubstitutionCipher();
         System.out.println("SUBSTITUTION CIPHER");
         System.out.println("Enter a Sentence");
@@ -53,11 +53,11 @@ public class CipherTextGenerator {
       EFFECTS:displays keyword cipher option
       */
 
-    public static void keycipher() {
+    public  void keycipher() {
         KeyWordCipher cipher = new KeyWordCipher();
         System.out.println("KEYWORD CIPHER");
         System.out.println("enter keyword ");
-        String keyword = KeyWordCipher.encoder(sc.next().toCharArray());
+        String keyword = cipher.encoder(sc.next().toCharArray());
         System.out.println("The Keyword array is" + keyword);
         System.out.println("Enter a sentence");
         String toBeEncrypted = sc.next();
@@ -71,7 +71,7 @@ public class CipherTextGenerator {
          MODIFIES: toBeEncrypted,keyword
          EFFECTS:displays polyalphabetic cipher option
          */
-    public static void polycipher() {
+    public  void polycipher() {
         PolyAlphabeticCipher cipher = new PolyAlphabeticCipher();
         System.out.println("POLYALPHABETIC CIPHER");
         System.out.println("Enter a sentence");
@@ -91,7 +91,7 @@ public class CipherTextGenerator {
       EFFECTS:displays hill cipher option
       */
 
-    public static void hillcipher() {
+    public  void hillcipher() {
         HillCipher cipher = new HillCipher();
         System.out.println("HILL CIPHER");
         System.out.println("Enter a sentence");
@@ -106,7 +106,7 @@ public class CipherTextGenerator {
         MODIFIES: toBeEncrypted,keyword
         EFFECTS:displays polyalphabetic decipher option
         */
-    public static void polydecipher() {
+    public  void polydecipher() {
         System.out.println("POLYALPHABETIC DECIPHER");
         PolyAlphabeticCipher cipher = new PolyAlphabeticCipher();
         System.out.println("Enter a sentence");
@@ -117,7 +117,7 @@ public class CipherTextGenerator {
         keyword = keyword.toUpperCase();
         String key = cipher.keywordgenerator(toBeDencrypted, keyword);
         System.out.println("The Keyword array is" + key);
-        String decrypt = PolyAlphabeticCipher.decypher(toBeDencrypted, key);
+        String decrypt = cipher.decypher(toBeDencrypted, key);
         System.out.println("The decrypted text is " + decrypt);
     }
 
@@ -125,7 +125,7 @@ public class CipherTextGenerator {
           MODIFIES: toBeEncrypted,keyword
           EFFECTS:displays keyword decipher option
           */
-    public static void subdecipher() {
+    public  void subdecipher() {
         SubstitutionCipher cipher = new SubstitutionCipher();
         System.out.println("SUBSTITUTION CIPHER");
         System.out.println("Enter a Sentence");
@@ -141,7 +141,7 @@ public class CipherTextGenerator {
   EFFECTS:passes data to respective classes based on user choice
   */
     @SuppressWarnings("methodlength")
-    private static void runCipher() {
+    private  void runCipher() {
         int ch = 0;
         Scanner sc = new Scanner(System.in);
         while (ch != 5) {

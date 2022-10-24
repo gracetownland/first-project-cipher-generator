@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class SubstitutionCipher {
     /*  MODIFIES: this
      *   EFFECTS:implements substitution cipher*/
-    public static String substitutionCipher(String toBeEncrypted, int moveBy) {
+    public  String substitutionCipher(String toBeEncrypted, int moveBy) {
         String toBeEncrypt = toBeEncrypted;
 
         toBeEncrypt = toBeEncrypt.toLowerCase();

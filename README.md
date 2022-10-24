@@ -15,3 +15,5 @@ Any individual who wants to implement basic cipher techniques for their messages
 - As a user, I want to be able to clearly see the encryption steps in Poly Alphabetic, Substituion and Keyword Ciphers.
 - As a user, I want to be able to run an encrypted message through a decrypt function for Poly Alphabetic Cipher and Substituion Ciphers.
 - As a user, I want to be able to run one message through multiple encryption algorithms to increase security. 
+- As a user, I want to be able to save my previous generated cipher's in a file.
+- AS a user, I want to be able to load my previous generated cipher's from file.

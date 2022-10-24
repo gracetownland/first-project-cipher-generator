@@ -8,7 +8,7 @@ public class KeyWordCipher {
     MODIFIES: this
     EFFECTS: adds the keyword in front of the alphabets which havent been used in the keyword.
      */
-    public static String encoder(char[] key) {
+    public  String encoder(char[] key) {
         String code = "";
 
 
@@ -44,7 +44,7 @@ public class KeyWordCipher {
     MODIFIES: cipher
     EFFECTS: implements keyword Cipher
      */
-    public static String cipheredIt(String toBeEncrypted, String encoded) {
+    public  String cipheredIt(String toBeEncrypted, String encoded) {
         String cipher = "";
 
 
