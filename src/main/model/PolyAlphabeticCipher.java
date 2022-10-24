@@ -6,14 +6,16 @@ public class PolyAlphabeticCipher {
        MODIFIES: keyword
        EFFECTS:returns keyword repeated until same length as message
        */    public  String keywordgenerator(String toBeEncrypted, String keyword) {
-        int l = toBeEncrypted.length();
+
+        StringBuilder keywordBuilder = new StringBuilder(keyword);
         for (int i = 0; ; i++) {
 
-            if (keyword.length() == toBeEncrypted.length()) {
+            if (keywordBuilder.length() == toBeEncrypted.length()) {
                 break;
             }
-            keyword += (keyword.charAt(i));
+            keywordBuilder.append(keywordBuilder.charAt(i));
         }
+        keyword = keywordBuilder.toString();
 
         return keyword;
     }
@@ -25,13 +27,13 @@ public class PolyAlphabeticCipher {
     */
 
     public  String cypher(String toBeEncrypted, String keyword) {
-        String encrypted = "";
+        StringBuilder encrypted = new StringBuilder();
         for (int i = 0; i < toBeEncrypted.length(); i++) {
             int x = (toBeEncrypted.charAt(i) + keyword.charAt(i)) % 26;
             x += 65;
-            encrypted += (char) x;
+            encrypted.append((char) x);
         }
-        return encrypted;
+        return encrypted.toString();
     }
 
     /*
@@ -39,13 +41,13 @@ public class PolyAlphabeticCipher {
         EFFECTS:deciphers the encrypted text by reversing the encryption process
         */
     public  String decypher(String encrypted, String keyword) {
-        String original = "";
+        StringBuilder original = new StringBuilder();
         for (int i = 0; i < encrypted.length() && i < keyword.length(); i++) {
             int x = (encrypted.charAt(i) - keyword.charAt(i) + 26) % 26;
             x += 65;
-            original += (char) x;
+            original.append((char) x);
         }
-        return original;
+        return original.toString();
     }
 }
 

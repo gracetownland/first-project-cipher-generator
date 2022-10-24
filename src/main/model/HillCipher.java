@@ -44,11 +44,11 @@ public class HillCipher {
         }
         int[][] matrixCipher = new int[5][1];
         encrypt(matrixCipher, matrixKey, message);
-        String cipherText = "";
+        StringBuilder cipherText = new StringBuilder();
         for (int i = 0; i < 5; i++) {
-            cipherText += (char) (matrixCipher[i][0] + 65);
+            cipherText.append((char) (matrixCipher[i][0] + 65));
         }
-        return cipherText;
+        return cipherText.toString();
     }
 }
 

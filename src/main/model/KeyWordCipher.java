@@ -9,23 +9,23 @@ public class KeyWordCipher {
     EFFECTS: adds the keyword in front of the alphabets which havent been used in the keyword.
      */
     public  String encoder(char[] key) {
-        String code = "";
+        StringBuilder code = new StringBuilder();
 
 
         boolean[] arr = new boolean[26];
 
 
-        for (int i = 0; i < key.length; i++) {
-            if (key[i] >= 'A' && key[i] <= 'Z') {
+        for (char c : key) {
+            if (c >= 'A' && c <= 'Z') {
 
-                if (!arr[key[i] - 65]) {
-                    code += (char) key[i];
-                    arr[key[i] - 65] = true;
+                if (!arr[c - 65]) {
+                    code.append(c);
+                    arr[c - 65] = true;
                 }
-            } else if (key[i] >= 'a' && key[i] <= 'z') {
-                if (!arr[key[i] - 97]) {
-                    code += (char) (key[i] - 32);
-                    arr[key[i] - 97] = true;
+            } else if (c >= 'a' && c <= 'z') {
+                if (!arr[c - 97]) {
+                    code.append((char) (c - 32));
+                    arr[c - 97] = true;
                 }
             }
         }
@@ -34,10 +34,10 @@ public class KeyWordCipher {
         for (int i = 0; i < 26; i++) {
             if (!arr[i]) {
                 arr[i] = true;
-                code += (char) (i + 65);
+                code.append((char) (i + 65));
             }
         }
-        return code;
+        return code.toString();
     }
 
     /*
@@ -45,20 +45,20 @@ public class KeyWordCipher {
     EFFECTS: implements keyword Cipher
      */
     public  String cipheredIt(String toBeEncrypted, String encoded) {
-        String cipher = "";
+        StringBuilder cipher = new StringBuilder();
 
 
         for (int i = 0; i < toBeEncrypted.length(); i++) {
             if (toBeEncrypted.charAt(i) >= 'a' && toBeEncrypted.charAt(i) <= 'z') {
                 int pos = toBeEncrypted.charAt(i) - 97;
-                cipher += encoded.charAt(pos);
+                cipher.append(encoded.charAt(pos));
             } else if (toBeEncrypted.charAt(i) >= 'A' && toBeEncrypted.charAt(i) <= 'Z') {
                 int pos = toBeEncrypted.charAt(i) - 65;
-                cipher += encoded.charAt(pos);
+                cipher.append(encoded.charAt(pos));
             } else {
-                cipher += toBeEncrypted.charAt(i);
+                cipher.append(toBeEncrypted.charAt(i));
             }
         }
-        return cipher;
+        return cipher.toString();
     }
 }

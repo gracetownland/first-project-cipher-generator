@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Scanner;
 /*Moves each character by the desired amount and returns the ciphered text. */
 
 public class SubstitutionCipher {
@@ -23,11 +22,11 @@ public class SubstitutionCipher {
                 a[i] = (char) ((int) a[i] + moveBy);
             }
         }
-        String encrypted = "";
+        StringBuilder encrypted = new StringBuilder();
         //reforms string
         for (int i = 0; i < toBeEncrypt.length(); i++) {
-            encrypted = encrypted + a[i];
+            encrypted.append(a[i]);
         }
-        return encrypted.toUpperCase();
+        return encrypted.toString().toUpperCase();
     }
 }
