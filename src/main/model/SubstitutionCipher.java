@@ -2,7 +2,7 @@ package model;
 
 /*Moves each character by the desired amount and returns the ciphered text. */
 
-public class SubstitutionCipher {
+public class SubstitutionCipher extends MasterCipher {
     String toBeEncrypt;
     int moveBy;
     String ciphered;

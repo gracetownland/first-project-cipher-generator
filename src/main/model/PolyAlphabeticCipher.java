@@ -1,6 +1,6 @@
 package model;
 
-public class PolyAlphabeticCipher {
+public class PolyAlphabeticCipher extends MasterCipher {
     /*
 
        MODIFIES: keyword
