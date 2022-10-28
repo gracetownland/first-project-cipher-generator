@@ -4,11 +4,21 @@ this class implements the Key Word Cipher technique
  */
 
 public class KeyWordCipher {
+    String encoded;
+    String ciphered;
+    String toBeEncrypted;
+    StringBuilder cipher = new StringBuilder();
+
+    public KeyWordCipher(String keyword, String toBeEncrypted) {
+        encoded = encoder(keyword.toCharArray());
+        this.toBeEncrypted = toBeEncrypted;
+    }
+
     /*
-    MODIFIES: this
-    EFFECTS: adds the keyword in front of the alphabets which havent been used in the keyword.
-     */
-    public  String encoder(char[] key) {
+        MODIFIES: this
+        EFFECTS: adds the keyword in front of the alphabets which havent been used in the keyword.
+         */
+    public String encoder(char[] key) {
         StringBuilder code = new StringBuilder();
 
 
@@ -44,8 +54,8 @@ public class KeyWordCipher {
     MODIFIES: cipher
     EFFECTS: implements keyword Cipher
      */
-    public  String cipheredIt(String toBeEncrypted, String encoded) {
-        StringBuilder cipher = new StringBuilder();
+    public String cipheredIt() {
+
 
 
         for (int i = 0; i < toBeEncrypted.length(); i++) {
@@ -59,6 +69,15 @@ public class KeyWordCipher {
                 cipher.append(toBeEncrypted.charAt(i));
             }
         }
-        return cipher.toString();
+        ciphered = cipher.toString();
+        return ciphered;
+    }
+
+    public String getCiphered() {
+        return ciphered;
+    }
+
+    public String getKeyword() {
+        return encoded;
     }
 }

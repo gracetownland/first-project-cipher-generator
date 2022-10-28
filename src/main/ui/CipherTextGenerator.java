@@ -97,17 +97,18 @@ public class CipherTextGenerator {
       */
 
     public void keycipher() {
-        KeyWordCipher cipher = new KeyWordCipher();
         System.out.println("KEYWORD CIPHER");
         System.out.println("enter keyword ");
-        String keyword = cipher.encoder(sc.next().toCharArray());
-        System.out.println("The Keyword array is" + keyword);
+        String keyword = sc.next();
+
         System.out.println("Enter a sentence");
         String toBeEncrypted = sc.next();
         System.out.println("Swapping letters of message with keyword array....");
         System.out.println("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        System.out.println(keyword);
-        System.out.println("The encrypted text is " + cipher.cipheredIt(toBeEncrypted, keyword));
+        KeyWordCipher cipher = new KeyWordCipher(keyword, toBeEncrypted);
+        System.out.println(cipher.getKeyword());
+        System.out.println("The encrypted text is ");
+        System.out.println(cipher.cipheredIt());
     }
 
     /*
