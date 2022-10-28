@@ -10,27 +10,27 @@ public class TestKeyWordCipher {
 
     @BeforeEach
     void setup() {
-        cipher = new KeyWordCipher();
+
     }
 
     @Test
     void testKeyWordCipherSimple() {
-        String keyword = cipher.encoder("thisiscool".toCharArray());
+        String keyword = "thisiscool";
         String toBeEncrypted = "ayushfeelsverycoolbutwantsto";
-        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK", cipher.cipheredIt(toBeEncrypted, keyword));
+        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK", new KeyWordCipher(keyword, toBeEncrypted).cipheredIt());
     }
 
     @Test
     void testKeyWordCipherSimpleCAPS() {
-        String keyword = cipher.encoder("THISISCOOL".toCharArray());
+        String keyword = "THISISCOOL";
         String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO";
-        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", cipher.cipheredIt(toBeEncrypted, keyword));
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", new KeyWordCipher(keyword, toBeEncrypted).cipheredIt());
     }
     @Test
     void testKeyWordCipherSpecialChar() {
-        String keyword = cipher.encoder("THISISCOOL".toCharArray());
+        String keyword = "THISISCOOL";
         String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO$";
-        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK$", cipher.cipheredIt(toBeEncrypted, keyword));
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK$", new KeyWordCipher(keyword, toBeEncrypted).cipheredIt());
     }
 
 }
