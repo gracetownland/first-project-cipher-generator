@@ -2,11 +2,13 @@ package model;
 
 /*Moves each character by the desired amount and returns the ciphered text. */
 
-public class SubstitutionCipher {
+public class SubstitutionCipher  {
+    String ciphered;
+
     /*  MODIFIES: this
      *   EFFECTS:implements substitution cipher*/
-    public  String substitutionCipher(String toBeEncrypted, int moveBy) {
-        String toBeEncrypt = toBeEncrypted;
+    public String substitutionCipher(String toBeEncrypt,int moveBy) {
+
 
         toBeEncrypt = toBeEncrypt.toLowerCase();
         char[] a = new char[toBeEncrypt.length()];
@@ -27,6 +29,11 @@ public class SubstitutionCipher {
         for (int i = 0; i < toBeEncrypt.length(); i++) {
             encrypted.append(a[i]);
         }
-        return encrypted.toString().toUpperCase();
+        ciphered = encrypted.toString().toUpperCase();
+        return ciphered;
+    }
+
+    public String getCipher() {
+        return ciphered;
     }
 }
