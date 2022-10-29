@@ -33,7 +33,5 @@ public class SubstitutionCipher  {
         return ciphered;
     }
 
-    public String getCipher() {
-        return ciphered;
-    }
+
 }

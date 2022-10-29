@@ -22,7 +22,7 @@ public class TestKeyWordCipher {
 
     @Test
     void testKeyWordCipherSimpleCAPS() {
-        String keyword = cipher.encoder("thisiscool".toCharArray());
+        String keyword = cipher.encoder("THISISCOOL".toCharArray());
         String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO";
         assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", cipher.cipheredIt(toBeEncrypted, keyword));
     }
