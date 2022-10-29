@@ -3,12 +3,12 @@ package model;
 this class implements the Key Word Cipher technique
  */
 
-public class KeyWordCipher  {
+public class KeyWordCipher {
     /*
     MODIFIES: this
     EFFECTS: adds the keyword in front of the alphabets which havent been used in the keyword.
      */
-    public  String encoder(char[] key) {
+    public String encoder(char[] key) {
         StringBuilder code = new StringBuilder();
 
 
@@ -44,7 +44,7 @@ public class KeyWordCipher  {
     MODIFIES: cipher
     EFFECTS: implements keyword Cipher
      */
-    public  String cipheredIt(String toBeEncrypted, String encoded) {
+    public String cipheredIt(String toBeEncrypted, String encoded) {
         StringBuilder cipher = new StringBuilder();
 
 
