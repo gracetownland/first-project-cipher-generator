@@ -1,4 +1,12 @@
 {
-    "UI": [],
-    "OUT": []
+    "UI": [
+        "ayush",
+        "ubc",
+        "compsci"
+    ],
+    "OUT": [
+        "tejas",
+        "asu",
+        "compsci"
+    ]
 }
