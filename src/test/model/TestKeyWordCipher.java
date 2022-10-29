@@ -10,27 +10,27 @@ public class TestKeyWordCipher {
 
     @BeforeEach
     void setup() {
-
+        cipher=new KeyWordCipher();
     }
 
     @Test
     void testKeyWordCipherSimple() {
         String keyword = "thisiscool";
         String toBeEncrypted = "ayushfeelsverycoolbutwantsto";
-        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK", new KeyWordCipher(keyword, toBeEncrypted).cipheredIt());
+        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK", cipher.cipheredIt(toBeEncrypted,keyword));
     }
 
     @Test
     void testKeyWordCipherSimpleCAPS() {
         String keyword = "THISISCOOL";
         String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO";
-        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", new KeyWordCipher(keyword, toBeEncrypted).cipheredIt());
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", cipher.cipheredIt(toBeEncrypted,keyword));
     }
     @Test
     void testKeyWordCipherSpecialChar() {
         String keyword = "THISISCOOL";
         String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO$";
-        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK$", new KeyWordCipher(keyword, toBeEncrypted).cipheredIt());
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK$", cipher.cipheredIt(toBeEncrypted,keyword));
     }
 
 }
