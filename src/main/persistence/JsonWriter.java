@@ -1,5 +1,6 @@
 package persistence;
 
+import model.SuperCipher;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -24,7 +25,7 @@ public class JsonWriter {
         writer = new PrintWriter(new File(destination));
     }
 
-    public void write(ArrayList<String> in, ArrayList<String> out) {
+    public void write(ArrayList<String> in, ArrayList<SuperCipher> out) {
         JSONObject obj = new JSONObject();
         obj.put("UI", in);
         obj.put("OUT", out);

@@ -4,6 +4,11 @@ this class implements the Key Word Cipher technique
  */
 
 public class KeyWordCipher {
+    private String request;
+    private String cipher;
+
+
+
     /*
     MODIFIES: this
     EFFECTS: adds the keyword in front of the alphabets which havent been used in the keyword.

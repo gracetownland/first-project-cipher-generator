@@ -3,14 +3,7 @@ package model;
 encrypting a message-> each block of n letters is multiplied by n*n matrix %26. */
 
 
-
-import java.util.Collections;
-import java.util.List;
-
-public class HillCipher  {
-
-
-
+public class HillCipher extends SuperCipher {
 
 
     /*  MODIFIES: this
@@ -24,6 +17,8 @@ public class HillCipher  {
             }
         }
     }
+
+
 
     /*
         MODIFIES:this
