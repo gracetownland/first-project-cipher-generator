@@ -3,10 +3,19 @@ package model;
 this class implements the Key Word Cipher technique
  */
 
-public class KeyWordCipher {
+public class KeyWordCipher extends SuperCipher {
     private String request;
     private String cipher;
+    String encoded;
 
+    public KeyWordCipher(String toBeEncrypted, String keyword) {
+        encoded = encoder(keyword.toCharArray());
+        System.out.println("The Keyword array is" + encoded);
+        System.out.println("Swapping letters of message with keyword array....");
+        System.out.println("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        System.out.println(encoded);
+        System.out.println(cipheredIt(toBeEncrypted, encoded));
+    }
 
 
     /*

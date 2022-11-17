@@ -25,7 +25,7 @@ public class JsonWriter {
         writer = new PrintWriter(new File(destination));
     }
 
-    public void write(ArrayList<String> in, ArrayList<SuperCipher> out) {
+    public void write(ArrayList<String> in, ArrayList<String> out) {
         JSONObject obj = new JSONObject();
         obj.put("UI", in);
         obj.put("OUT", out);

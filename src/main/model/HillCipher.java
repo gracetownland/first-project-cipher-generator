@@ -4,6 +4,14 @@ encrypting a message-> each block of n letters is multiplied by n*n matrix %26. 
 
 
 public class HillCipher extends SuperCipher {
+    String toBeEncrypted;
+    String keyword;
+
+    public HillCipher(String toBeEncrypted, String keyword) {
+        this.toBeEncrypted = toBeEncrypted;
+        this.keyword = keyword;
+        hillCipher();
+    }
 
 
     /*  MODIFIES: this
@@ -17,7 +25,6 @@ public class HillCipher extends SuperCipher {
             }
         }
     }
-
 
 
     /*
@@ -40,12 +47,12 @@ public class HillCipher extends SuperCipher {
            MODIFIES:this
            EFFECTS: implements Hill Cipher
         */
-    public String hillCipher(String encrypt, String keyword) {
+    public String hillCipher() {
         int[][] matrixKey = new int[5][5];
         getMatrixKey(keyword, matrixKey);
         int[][] message = new int[5][1];
         for (int i = 0; i < 5; i++) {
-            message[i][0] = (encrypt.charAt(i)) % 65;
+            message[i][0] = (toBeEncrypted.charAt(i)) % 65;
         }
         int[][] matrixCipher = new int[5][1];
         encrypt(matrixCipher, matrixKey, message);

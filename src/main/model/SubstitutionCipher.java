@@ -2,20 +2,20 @@ package model;
 
 /*Moves each character by the desired amount and returns the ciphered text. */
 
-public class SubstitutionCipher extends SuperCipher {
+public class SubstitutionCipher extends Cipher {
     String toBeEncrypt;
     int moveBy;
     String ciphered;
 
-    public SubstitutionCipher(String toBeEncrypt, String moveBy) {
+    public void setAll(String toBeEncrypt, String moveBy) {
         this.toBeEncrypt = toBeEncrypt;
         this.moveBy = Integer.parseInt(moveBy);
-        System.out.println(substitutionCipher());
+        //cipher();
     }
 
     /*  MODIFIES: this
      *   EFFECTS:implements substitution cipher*/
-    public String substitutionCipher() {
+    public String cipher() {
         toBeEncrypt = toBeEncrypt.toLowerCase();
         char[] a = new char[toBeEncrypt.length()];
         for (int i = 0; i < toBeEncrypt.length(); i++) {
@@ -38,6 +38,7 @@ public class SubstitutionCipher extends SuperCipher {
         ciphered = encrypted.toString().toUpperCase();
         return ciphered;
     }
+
 
 
 }
