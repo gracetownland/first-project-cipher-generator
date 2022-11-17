@@ -10,10 +10,14 @@ public class SuperCipher {
         SubstitutionCipher sub = new SubstitutionCipher();
         PolyAlphabeticCipher poly = new PolyAlphabeticCipher();
         PolyAlphabeticDeCipher dePoly = new PolyAlphabeticDeCipher();
+        KeyWordCipher key = new KeyWordCipher();
+        HillCipher hill = new HillCipher();
         coll = new ArrayList<>();
         coll.add(sub);
         coll.add(poly);
         coll.add(dePoly);
+        coll.add(key);
+        coll.add(hill);
     }
 
     public ArrayList<Cipher> getColl() {
@@ -32,8 +36,13 @@ public class SuperCipher {
         return (PolyAlphabeticDeCipher) this.coll.get(2);
     }
 
+    public KeyWordCipher getKeyCipher() {
+        return (KeyWordCipher) this.coll.get(3);
+    }
 
-
+    public HillCipher getHillCipher() {
+        return (HillCipher) this.coll.get(4);
+    }
     /*
     make method cipher and extend it to every cipher class
     */
@@ -42,6 +51,8 @@ public class SuperCipher {
     public String cipher() {
         return null;
     }
+
+    ;
 
     //public String getEncryptedMessage(){
     //   return

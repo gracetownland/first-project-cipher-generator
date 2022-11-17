@@ -54,43 +54,43 @@ public class CipherTextGenerator {
                 listInput.add(toBeEncrypted);
                 listOutput.add(subcipher(toBeEncrypted));
             }
-//            if (ch == 2) {
-//                acceptInput();
-//                listInput.add(toBeEncrypted);
-//                listOutput.add(keycipher(toBeEncrypted));
-//
-//            }
+            if (ch == 2) {
+                acceptInput();
+                listInput.add(toBeEncrypted);
+                listOutput.add(keycipher(toBeEncrypted));
+
+            }
             if (ch == 3) {
                 acceptInput();
                 listInput.add(toBeEncrypted);
                 listOutput.add(polycipher(toBeEncrypted));
             }
-//            if (ch == 4) {
-//                acceptInput();
-//                listInput.add(toBeEncrypted);
-//                listOutput.add(hillcipher(toBeEncrypted));
-//            }
-//            if (ch == 5) {
-//                acceptInput();
-//                listInput.add(toBeEncrypted);
-//                listOutput.add(polydecipher(toBeEncrypted));
-//            }
-//            if (ch == 6) {
-//                acceptInput();
-//                listInput.add(toBeEncrypted);
-//                listOutput.add(subdecipher(toBeEncrypted));
-//            }
-//            if (ch == 7) {
-//                System.out.println("Thank you");
-//                break;
-//            }
-//            if (ch == 8) {
-//                System.out.println(listInput.toString());
-//            }
-//            if (ch == 9) {
-//                System.out.println(listOutput.toString());
-//            }
-//
+            if (ch == 4) {
+                acceptInput();
+                listInput.add(toBeEncrypted);
+                listOutput.add(hillcipher(toBeEncrypted));
+            }
+            if (ch == 5) {
+                acceptInput();
+                listInput.add(toBeEncrypted);
+                listOutput.add(polydecipher(toBeEncrypted));
+            }
+            if (ch == 6) {
+                acceptInput();
+                listInput.add(toBeEncrypted);
+                listOutput.add(subdecipher(toBeEncrypted));
+            }
+            if (ch == 7) {
+                System.out.println("Thank you");
+                break;
+            }
+            if (ch == 8) {
+                System.out.println(listInput.toString());
+            }
+            if (ch == 9) {
+                System.out.println(listOutput.toString());
+            }
+
         } while (ch != 7);
         writer.write(listInput, listOutput);
     }
@@ -134,13 +134,19 @@ public class CipherTextGenerator {
       EFFECTS:displays keyword cipher option
       */
 
-    public SuperCipher keycipher(String toBeEncrypted) {
+    public String keycipher(String toBeEncrypted) {
 
         System.out.println("KEYWORD CIPHER");
         System.out.println("enter keyword ");
         String keyword = sc.next();
-        System.out.println("The encrypted text is " + new KeyWordCipher(toBeEncrypted, keyword));
-        return new KeyWordCipher(toBeEncrypted, keyword);
+        superCipher.getKeyCipher().setAll(toBeEncrypted, keyword);
+        System.out.println("The Keyword array is" + superCipher.getKeyCipher().getEncoded());
+        System.out.println("Swapping letters of message with keyword array....");
+        System.out.println("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        System.out.println(superCipher.getKeyCipher().getEncoded());
+        String result = superCipher.getKeyCipher().cipher();
+        System.out.println("The encrypted text is " + result);
+        return result;
     }
 
     /*
@@ -166,13 +172,15 @@ public class CipherTextGenerator {
       EFFECTS:displays hill cipher option
       */
 
-    public SuperCipher hillcipher(String toBeEncrypted) {
+    public String hillcipher(String toBeEncrypted) {
 
         System.out.println("HILL CIPHER");
         System.out.println("enter keyword ");
         String keyword = sc.next();
-        System.out.println("The encrypted text is" + new HillCipher(toBeEncrypted, keyword));
-        return new HillCipher(toBeEncrypted, keyword);
+        superCipher.getHillCipher().setAll(toBeEncrypted, keyword);
+        String result = superCipher.getHillCipher().cipher();
+        System.out.println("The encrypted text is" + result);
+        return result;
     }
 
     /*
@@ -198,14 +206,19 @@ public class CipherTextGenerator {
           MODIFIES: toBeEncrypted,keyword
           EFFECTS:displays keyword decipher option
           */
-//    public SuperCipher subdecipher(String toBeEncrypted) {
-//        //SubstitutionCipher cipher = new SubstitutionCipher();
-//        System.out.println("SUBSTITUTION CIPHER");
-//        System.out.println("How much do you want to move by?");
-//        int moveBy = -sc.nextInt();
-//        System.out.println("The decrypted text is " + new SubstitutionCipher(toBeEncrypted, Integer.toString(moveBy)))
-//        return new SubstitutionCipher(toBeEncrypted, Integer.toString(moveBy));
-//    }
+    public String subdecipher(String toBeEncrypted) {
+
+        System.out.println("SUBSTITUTION DECIPHER");
+        System.out.println("How much do you want to move by?");
+        String moveBy = Integer.toString(-sc.nextInt());
+        System.out.println("Shifting all the letters " + moveBy + " places");
+        System.out.println("The original text is " + toBeEncrypted);
+        System.out.println("The original text is " + toBeEncrypted);
+        superCipher.getSubCipher().setAll(toBeEncrypted, moveBy);
+        String result = superCipher.getSubCipher().cipher();
+        System.out.println("The encrypted text is " + result);
+        return result;
+    }
 
 
     public void acceptInput() {

@@ -3,14 +3,14 @@ package model;
 encrypting a message-> each block of n letters is multiplied by n*n matrix %26. */
 
 
-public class HillCipher extends SuperCipher {
+public class HillCipher extends Cipher {
     String toBeEncrypted;
     String keyword;
 
-    public HillCipher(String toBeEncrypted, String keyword) {
+    public void setAll(String toBeEncrypted, String keyword) {
         this.toBeEncrypted = toBeEncrypted;
         this.keyword = keyword;
-        hillCipher();
+
     }
 
 
@@ -47,7 +47,7 @@ public class HillCipher extends SuperCipher {
            MODIFIES:this
            EFFECTS: implements Hill Cipher
         */
-    public String hillCipher() {
+    public String cipher() {
         int[][] matrixKey = new int[5][5];
         getMatrixKey(keyword, matrixKey);
         int[][] message = new int[5][1];

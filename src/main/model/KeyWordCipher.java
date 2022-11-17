@@ -3,18 +3,17 @@ package model;
 this class implements the Key Word Cipher technique
  */
 
-public class KeyWordCipher extends SuperCipher {
-    private String request;
-    private String cipher;
-    String encoded;
+public class KeyWordCipher extends Cipher {
+    private String toBeEncrypted;
+    private String encoded;
 
-    public KeyWordCipher(String toBeEncrypted, String keyword) {
+    public void setAll(String toBeEncrypted, String keyword) {
         encoded = encoder(keyword.toCharArray());
-        System.out.println("The Keyword array is" + encoded);
-        System.out.println("Swapping letters of message with keyword array....");
-        System.out.println("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        System.out.println(encoded);
-        System.out.println(cipheredIt(toBeEncrypted, encoded));
+        this.toBeEncrypted = toBeEncrypted;
+
+
+
+
     }
 
 
@@ -58,7 +57,7 @@ public class KeyWordCipher extends SuperCipher {
     MODIFIES: cipher
     EFFECTS: implements keyword Cipher
      */
-    public String cipheredIt(String toBeEncrypted, String encoded) {
+    public String cipher() {
         StringBuilder cipher = new StringBuilder();
 
 
@@ -74,5 +73,9 @@ public class KeyWordCipher extends SuperCipher {
             }
         }
         return cipher.toString();
+    }
+
+    public String getEncoded() {
+        return encoded;
     }
 }
