@@ -80,7 +80,7 @@ public class CipherTextGenerator {
                 listInput.add(toBeEncrypted);
                 listOutput.add(subdecipher(toBeEncrypted));
             }
-            if (ch == 7) {
+            if (ch == 10) {
                 System.out.println("Thank you");
                 break;
             }
@@ -90,9 +90,11 @@ public class CipherTextGenerator {
             if (ch == 9) {
                 System.out.println(listOutput.toString());
             }
+            if (ch == 7) {
+                writer.write(listInput, listOutput);
+            }
 
-        } while (ch != 7);
-        writer.write(listInput, listOutput);
+        } while (ch != 10);
     }
 
 
@@ -107,10 +109,10 @@ public class CipherTextGenerator {
         System.out.println("Press 4 for a Hill Cipher!");
         System.out.println("Press 5 for a polyalphabetic decipher");
         System.out.println("Press 6 for a substitution decipher");
-        System.out.println("Press 7 to exit");
+        System.out.println("Press 7 to save data!");
         System.out.println("Press 8 to see user input history");
         System.out.println("Press 9 to see user output history");
-
+        System.out.println("Press 10 exit!");
         System.out.println("Press any other number to repeat the menu.");
     }
     /*
