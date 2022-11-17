@@ -20,9 +20,7 @@ public class SuperCipher {
         coll.add(hill);
     }
 
-    public ArrayList<Cipher> getColl() {
-        return this.coll;
-    }
+
 
     public SubstitutionCipher getSubCipher() {
         return (SubstitutionCipher) this.coll.get(0);
