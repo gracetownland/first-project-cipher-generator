@@ -1,14 +1,18 @@
 package ui;
 
 import model.KeyWordCipher;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MenuPage extends JFrame implements ActionListener {
     JLabel menuLabel;
+    JLabel imageLabel;
     JButton end;
     JRadioButton hillCipher;
     JRadioButton subCipher;
@@ -18,29 +22,46 @@ public class MenuPage extends JFrame implements ActionListener {
     JRadioButton loadData;
     JRadioButton saveData;
     ButtonGroup group;
+    JsonReader reader;
+    JsonWriter writer;
+    ImageIcon image;
 
 
     public MenuPage() {
+        // ArrayList<String> listInput = reader.buildUserInput();
+        //ArrayList<String> listOutput = reader.buildUserOutput();
+        init();
+        makeImageLabel();
         makeEndButton();
         makeMenuLabel();
-        init();
         makeRadioButtons();
         addButtonGroups();
         addListeners();
         addAllComponents();
-        pack();
+        //pack();
         setVisible(true);
     }
 
     public void init() {
-        setSize(800, 500);
+        reader = new JsonReader("./data/data2.json");
+        writer = new JsonWriter("./data/data2.json");
+        setSize(400, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
+        image = new ImageIcon("src/main/ui/projectcipher.jpeg");
+    }
+
+    public void makeImageLabel() {
+        imageLabel = new JLabel();
+        imageLabel.setIcon(image);
+        imageLabel.setBounds(200, 50, 200, 200);
+        imageLabel.setOpaque(true);
+        imageLabel.setVisible(true);
     }
 
     public void makeMenuLabel() {
         menuLabel = new JLabel();
-        menuLabel.setText("Press the desired option.");
+        menuLabel.setText("Press the desired option: ");
         menuLabel.setBounds(200, 0, 500, 50);
         menuLabel.setVerticalAlignment(JLabel.TOP);
         menuLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -79,7 +100,7 @@ public class MenuPage extends JFrame implements ActionListener {
 
     public void addAllComponents() {
         add(menuLabel);
-        add(end);
+        add(imageLabel);
         add(hillCipher);
         add(subCipher);
         add(polyCipher);
@@ -87,6 +108,7 @@ public class MenuPage extends JFrame implements ActionListener {
         add(keyCipher);
         add(loadData);
         add(saveData);
+        add(end);
     }
 
     public void makeEndButton() {
