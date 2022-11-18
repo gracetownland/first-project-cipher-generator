@@ -17,31 +17,37 @@ public class MenuPage extends JFrame implements ActionListener {
     JRadioButton keyCipher;
     JRadioButton loadData;
     JRadioButton saveData;
-
+    ButtonGroup group;
 
 
     public MenuPage() {
-        end = new JButton();
-        end.setBounds(700, 450, 50, 20);
-        end.addActionListener(e -> System.exit(0));
-        end.setText("Exit");
+        makeEndButton();
+        makeMenuLabel();
+        init();
+        makeRadioButtons();
+        addButtonGroups();
+        addListeners();
+        addAllComponents();
+        pack();
+        setVisible(true);
+    }
 
+    public void init() {
+        setSize(800, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+    }
 
+    public void makeMenuLabel() {
         menuLabel = new JLabel();
         menuLabel.setText("Press the desired option.");
         menuLabel.setBounds(200, 0, 500, 50);
         menuLabel.setVerticalAlignment(JLabel.TOP);
         menuLabel.setHorizontalAlignment(JLabel.CENTER);
         menuLabel.setVisible(true);
+    }
 
-        setSize(800, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-        add(menuLabel);
-        add(end);
-        setLayout(new FlowLayout());
-
+    public void makeRadioButtons() {
         hillCipher = new JRadioButton("Hill Cipher");
         subCipher = new JRadioButton("Substitution Cipher");
         polyCipher = new JRadioButton("PolyAlphabetic Cipher");
@@ -49,10 +55,10 @@ public class MenuPage extends JFrame implements ActionListener {
         keyCipher = new JRadioButton("KeyWord Cipher");
         loadData = new JRadioButton("Load data");
         saveData = new JRadioButton("Save data");
+    }
 
-
-
-        ButtonGroup group = new ButtonGroup();
+    public void addButtonGroups() {
+        group = new ButtonGroup();
         group.add(hillCipher);
         group.add(subCipher);
         group.add(polyCipher);
@@ -60,14 +66,20 @@ public class MenuPage extends JFrame implements ActionListener {
         group.add(keyCipher);
         group.add(loadData);
         group.add(saveData);
+    }
 
+    public void addListeners() {
         hillCipher.addActionListener(this);
         subCipher.addActionListener(this);
         polyCipher.addActionListener(this);
         polyDeCipher.addActionListener(this);
         keyCipher.addActionListener(this);
         loadData.addActionListener(this);
+    }
 
+    public void addAllComponents() {
+        add(menuLabel);
+        add(end);
         add(hillCipher);
         add(subCipher);
         add(polyCipher);
@@ -75,22 +87,24 @@ public class MenuPage extends JFrame implements ActionListener {
         add(keyCipher);
         add(loadData);
         add(saveData);
+    }
 
-        //pack();
-        setVisible(true);
+    public void makeEndButton() {
+        end = new JButton();
+        end.setBounds(700, 450, 50, 20);
+        end.addActionListener(e -> System.exit(0));
+        end.setText("Exit");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == hillCipher) {
-            System.out.println("!!!!!!!!!!");
             new HillCipherGraphics();
         }
         if (e.getSource() == subCipher) {
             new SubCipherGraphics();
         }
         if (e.getSource() == polyDeCipher) {
-            System.out.println("!!!!!!!!!!");
             new PolyDeCipherGraphics();
         }
         if (e.getSource() == polyCipher) {
