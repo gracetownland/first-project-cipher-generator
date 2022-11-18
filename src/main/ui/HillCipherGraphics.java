@@ -7,19 +7,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class KeyCipherGraphics extends MenuPage implements ActionListener {
-    JFrame keyFrame;
+public class HillCipherGraphics extends MenuPage implements ActionListener {
+    JFrame hillFrame;
     JLabel heading;
     JLabel acceptInputMessage;
-    JLabel acceptKeyWordMessage;
+    JLabel acceptMoveByMessage;
     JLabel outputMessage;
     JTextField acceptInput;
-    JTextField keyWord;
+    JTextField moveBy;
     JButton submit;
     SuperCipher superCipher;
 
-    public KeyCipherGraphics() {
-        keyFrame = new JFrame();
+    public HillCipherGraphics() {
+        hillFrame = new JFrame();
         superCipher = new SuperCipher();
         setSubmit();
         setAcceptInput();
@@ -29,13 +29,12 @@ public class KeyCipherGraphics extends MenuPage implements ActionListener {
         setAcceptInputMessage();
         setOutputMessage();
 
-        keyFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        hillFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         addAll();
-        keyFrame.setSize(800, 500);
-        keyFrame.setLayout(null);
-        keyFrame.setVisible(true);
+        hillFrame.setSize(800, 500);
+        hillFrame.setLayout(null);
+        hillFrame.setVisible(true);
         setVisible(false);
-
     }
 
     public void setAcceptInputMessage() {
@@ -52,14 +51,14 @@ public class KeyCipherGraphics extends MenuPage implements ActionListener {
     }
 
     public void setAcceptMoveByMessage() {
-        acceptKeyWordMessage = new JLabel();
-        acceptKeyWordMessage.setText("Enter keyword!");
-        acceptKeyWordMessage.setBounds(200, 75, 500, 30);
+        acceptMoveByMessage = new JLabel();
+        acceptMoveByMessage.setText("Enter keyword!");
+        acceptMoveByMessage.setBounds(200, 75, 500, 30);
     }
 
     public void setHeading() {
         heading = new JLabel();
-        heading.setText("KEYWORD CIPHER");
+        heading.setText("HILL CIPHER");
         heading.setBounds(200, 0, 500, 30);
         heading.setVerticalAlignment(JLabel.TOP);
         heading.setHorizontalAlignment(JLabel.CENTER);
@@ -67,9 +66,9 @@ public class KeyCipherGraphics extends MenuPage implements ActionListener {
     }
 
     public void setMoveBy() {
-        keyWord = new JTextField();
-        keyWord.setPreferredSize(new Dimension(250, 40));
-        keyWord.setBounds(200, 100, 500, 25);
+        moveBy = new JTextField();
+        moveBy.setPreferredSize(new Dimension(250, 40));
+        moveBy.setBounds(200, 100, 500, 25);
     }
 
     public void setAcceptInput() {
@@ -86,13 +85,13 @@ public class KeyCipherGraphics extends MenuPage implements ActionListener {
     }
 
     public void addAll() {
-        keyFrame.add(heading);
-        keyFrame.add(acceptInputMessage);
-        keyFrame.add(submit);
-        keyFrame.add(acceptInput);
-        keyFrame.add(keyWord);
-        keyFrame.add(acceptKeyWordMessage);
-        keyFrame.add(outputMessage);
+        hillFrame.add(heading);
+        hillFrame.add(acceptInputMessage);
+        hillFrame.add(submit);
+        hillFrame.add(acceptInput);
+        hillFrame.add(moveBy);
+        hillFrame.add(acceptMoveByMessage);
+        hillFrame.add(outputMessage);
     }
 
 
@@ -100,10 +99,10 @@ public class KeyCipherGraphics extends MenuPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
             String toBeEncrypted = acceptInput.getText();
-            String number = keyWord.getText();
-            superCipher.getKeyCipher().setAll(toBeEncrypted, number);
-            System.out.println(superCipher.getKeyCipher().cipher());
-            outputMessage.setText(superCipher.getKeyCipher().cipher());
+            String number = moveBy.getText();
+            superCipher.getHillCipher().setAll(toBeEncrypted, number);
+            System.out.println(superCipher.getHillCipher().cipher());
+            outputMessage.setText(superCipher.getHillCipher().cipher());
             outputMessage.setVisible(true);
 
         }

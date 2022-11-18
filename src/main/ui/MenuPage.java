@@ -10,8 +10,10 @@ import java.awt.event.ActionListener;
 public class MenuPage extends JFrame implements ActionListener {
     JLabel menuLabel;
     JButton end;
+    JRadioButton hillCipher;
     JRadioButton subCipher;
     JRadioButton polyCipher;
+    JRadioButton polyDeCipher;
     JRadioButton keyCipher;
     JRadioButton loadData;
     JRadioButton saveData;
@@ -40,28 +42,39 @@ public class MenuPage extends JFrame implements ActionListener {
         add(end);
         setLayout(new FlowLayout());
 
+        hillCipher = new JRadioButton("Hill Cipher");
         subCipher = new JRadioButton("Substitution Cipher");
         polyCipher = new JRadioButton("PolyAlphabetic Cipher");
+        polyDeCipher = new JRadioButton("PolyAlphabetic Decipher!");
         keyCipher = new JRadioButton("KeyWord Cipher");
         loadData = new JRadioButton("Load data");
+        saveData = new JRadioButton("Save data");
 
 
 
         ButtonGroup group = new ButtonGroup();
+        group.add(hillCipher);
         group.add(subCipher);
         group.add(polyCipher);
+        group.add(polyDeCipher);
         group.add(keyCipher);
         group.add(loadData);
+        group.add(saveData);
 
+        hillCipher.addActionListener(this);
         subCipher.addActionListener(this);
         polyCipher.addActionListener(this);
+        polyDeCipher.addActionListener(this);
         keyCipher.addActionListener(this);
         loadData.addActionListener(this);
 
+        add(hillCipher);
         add(subCipher);
         add(polyCipher);
+        add(polyDeCipher);
         add(keyCipher);
         add(loadData);
+        add(saveData);
 
         //pack();
         setVisible(true);
@@ -69,20 +82,26 @@ public class MenuPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == hillCipher) {
+            System.out.println("!!!!!!!!!!");
+            new HillCipherGraphics();
+        }
         if (e.getSource() == subCipher) {
-            System.out.println("substitution cipher ");
             new SubCipherGraphics();
         }
+        if (e.getSource() == polyDeCipher) {
+            System.out.println("!!!!!!!!!!");
+            new PolyDeCipherGraphics();
+        }
         if (e.getSource() == polyCipher) {
-            System.out.println("polyalphabetic cipher");
             new PolyCipherGraphics();
         }
         if (e.getSource() == keyCipher) {
-            System.out.println("Key word cipher");
-            new KeyWordCipher();
+            new KeyCipherGraphics();
         }
         if (e.getSource() == loadData) {
             System.out.println("loading data");
         }
+
     }
 }
