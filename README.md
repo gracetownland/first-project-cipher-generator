@@ -17,3 +17,12 @@ Any individual who wants to implement basic cipher techniques for their messages
 - As a user, I want to be able to run one message through multiple encryption algorithms to increase security. 
 - As a user, I want to be able to save my previous generated cipher's in a file.
 - AS a user, I want to be able to load my previous generated cipher's from file.
+
+
+# Instructions for Grader
+
+- You can generate the first required event related to adding Xs to a Y by clicking on any of the radio buttons and ciphering some text
+- You can generate the second required event related to adding Xs to a Y by hitting the Load Data radio button which will display all of the previously saved ciphers. (Do note : You must save some data first for this to display anything)
+- You can locate my visual component by hitting the start button, which will prompt a new window to open with multiple cipher options plus an image of a cipher
+- You can save the state of my application by hitting the Save data radio button
+- You can reload the state of my application by hitting the Load data radio button
