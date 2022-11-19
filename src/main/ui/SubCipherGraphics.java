@@ -46,7 +46,7 @@ public class SubCipherGraphics extends MenuPage implements ActionListener {
     public void setOutputMessage() {
         outputMessage = new JLabel();
         outputMessage.setVisible(false);
-        outputMessage.setBounds(200,150,500,30);
+        outputMessage.setBounds(200, 150, 500, 30);
 
     }
 
@@ -99,10 +99,12 @@ public class SubCipherGraphics extends MenuPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
             String toBeEncrypted = acceptInput.getText();
+            MenuPage.addListInput(toBeEncrypted);
             String number = moveBy.getText();
-            superCipher.getSubCipher().setAll(toBeEncrypted, number);
-            System.out.println(superCipher.getSubCipher().cipher());
-            outputMessage.setText(superCipher.getSubCipher().cipher());
+            int i = superCipher.addSubCipher();
+            superCipher.getSubCipher(i).setAll(toBeEncrypted, number);
+            MenuPage.addListOutput(superCipher.getSubCipher(i).cipher());
+            outputMessage.setText(superCipher.getSubCipher(i).cipher());
             outputMessage.setVisible(true);
 
         }

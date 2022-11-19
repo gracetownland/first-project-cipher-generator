@@ -19,9 +19,10 @@ public class TestPolyAlphabeticCipher {
         String toBeEncrypted = "ABCDEF";
         String keyword = "ayush";
         keyword = keyword.toUpperCase();
-        superCipher.getPolyCipher().setAll(toBeEncrypted, keyword);
-        superCipher.getPolyCipher().keywordgenerator();
-        assertEquals("AZWVLF", superCipher.getPolyCipher().cipher());
+        int i = superCipher.addPolyCipher();
+        superCipher.getPolyCipher(i).setAll(toBeEncrypted, keyword);
+        superCipher.getPolyCipher(i).keywordgenerator();
+        assertEquals("AZWVLF", superCipher.getPolyCipher(i).cipher());
     }
 
     @Test
@@ -29,8 +30,9 @@ public class TestPolyAlphabeticCipher {
         String toBeEncrypted = "ABCDEF";
         String keyword = "ayusha";
         keyword = keyword.toUpperCase();
-        superCipher.getPolyCipher().setAll(toBeEncrypted, keyword);
-        assertEquals("AZWVLF", superCipher.getPolyCipher().cipher());
+        int i = superCipher.addPolyCipher();
+        superCipher.getPolyCipher(i).setAll(toBeEncrypted, keyword);
+        assertEquals("AZWVLF", superCipher.getPolyCipher(i).cipher());
     }
 
     @Test
@@ -38,9 +40,10 @@ public class TestPolyAlphabeticCipher {
         String toBeEncrypted = "AZWVLF";
         String keyword = "ayush";
         keyword = keyword.toUpperCase();
-        superCipher.getPolyDeCipher().setAll(toBeEncrypted, keyword);
-        superCipher.getPolyDeCipher().keywordgenerator();
-        assertEquals("ABCDEF", superCipher.getPolyDeCipher().cipher());
+        int i = superCipher.addPolyDecipher();
+        superCipher.getPolyDeCipher(i).setAll(toBeEncrypted, keyword);
+        superCipher.getPolyDeCipher(i).keywordgenerator();
+        assertEquals("ABCDEF", superCipher.getPolyDeCipher(i).cipher());
     }
 
 }

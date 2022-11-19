@@ -1,6 +1,5 @@
 package ui;
 
-import model.KeyWordCipher;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -11,8 +10,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class MenuPage extends JFrame implements ActionListener {
+    JPanel messages;
+    // JLabel ioMessage;
     JLabel menuLabel;
     JLabel imageLabel;
+    JLabel inputListLabel;
+    JLabel outputListLabel;
     JButton end;
     JRadioButton hillCipher;
     JRadioButton subCipher;
@@ -22,15 +25,20 @@ public class MenuPage extends JFrame implements ActionListener {
     JRadioButton loadData;
     JRadioButton saveData;
     ButtonGroup group;
-    JsonReader reader;
-    JsonWriter writer;
+    JsonReader reader = new JsonReader("./data/data2.json");
+    JsonWriter writer = new JsonWriter("./data/data2.json");
+    static ArrayList<String> listInput;
+    static ArrayList<String> listOutput;
     ImageIcon image;
 
 
     public MenuPage() {
-        // ArrayList<String> listInput = reader.buildUserInput();
-        //ArrayList<String> listOutput = reader.buildUserOutput();
+        listInput = reader.buildUserInput();
+        listOutput = reader.buildUserOutput();
         init();
+
+        makeMessagesPanel();
+        makeInputOutputListLabel();
         makeImageLabel();
         makeEndButton();
         makeMenuLabel();
@@ -38,14 +46,35 @@ public class MenuPage extends JFrame implements ActionListener {
         addButtonGroups();
         addListeners();
         addAllComponents();
-        //pack();
         setVisible(true);
     }
 
+    public void makeMessagesPanel() {
+
+        messages = new JPanel();
+        messages.setVisible(true);
+        messages.setPreferredSize(new Dimension(800, 100));
+        messages.setOpaque(true);
+        messages.setBackground(Color.CYAN);
+        messages.setLayout(new BorderLayout());
+    }
+
+    public void makeInputOutputListLabel() {
+//        ioMessage = new JLabel();
+//        ioMessage.setText("TOP-INPUT. BOTTOM-OUTPUT.");
+//        ioMessage.setVisible(false);
+//        messages.add(ioMessage, BorderLayout.CENTER);
+        inputListLabel = new JLabel();
+        inputListLabel.setVisible(false);
+        messages.add(inputListLabel, BorderLayout.NORTH);
+        outputListLabel = new JLabel();
+        outputListLabel.setVisible(false);
+        messages.add(outputListLabel, BorderLayout.SOUTH);
+    }
+
     public void init() {
-        reader = new JsonReader("./data/data2.json");
-        writer = new JsonWriter("./data/data2.json");
-        setSize(400, 800);
+
+        setSize(800, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
         image = new ImageIcon("src/main/ui/projectcipher.jpeg");
@@ -96,6 +125,7 @@ public class MenuPage extends JFrame implements ActionListener {
         polyDeCipher.addActionListener(this);
         keyCipher.addActionListener(this);
         loadData.addActionListener(this);
+        saveData.addActionListener(this);
     }
 
     public void addAllComponents() {
@@ -109,6 +139,7 @@ public class MenuPage extends JFrame implements ActionListener {
         add(loadData);
         add(saveData);
         add(end);
+        add(messages);
     }
 
     public void makeEndButton() {
@@ -136,8 +167,45 @@ public class MenuPage extends JFrame implements ActionListener {
             new KeyCipherGraphics();
         }
         if (e.getSource() == loadData) {
-            System.out.println("loading data");
+            displayData();
+        }
+        if (e.getSource() == saveData) {
+            System.out.println("saving data");
+            writer.write(listInput, listOutput);
         }
 
+    }
+
+    public void displayData() {
+        StringBuilder inputData = new StringBuilder();
+        inputData.append("INPUT -> ");
+        for (String s : listInput) {
+            inputData.append(s == null ? "" : (s + ", "));
+            inputListLabel.setText(inputData.toString());
+            inputListLabel.setVisible(true);
+        }
+        StringBuilder outputData = new StringBuilder();
+        outputData.append("OUTPUT -> ");
+        for (String s : listOutput) {
+            outputData.append(s == null ? "" : (s + ", "));
+            outputListLabel.setText(outputData.toString());
+            outputListLabel.setVisible(true);
+        }
+    }
+
+    public ArrayList<String> getListInput() {
+        return listInput;
+    }
+
+    public ArrayList<String> getListOutput() {
+        return listOutput;
+    }
+
+    public static void addListInput(String toBeEncrypted) {
+        listInput.add(toBeEncrypted);
+    }
+
+    public static void addListOutput(String cipher) {
+        listOutput.add(cipher);
     }
 }

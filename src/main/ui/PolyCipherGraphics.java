@@ -1,11 +1,13 @@
 package ui;
 
 import model.SuperCipher;
+import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class PolyCipherGraphics extends MenuPage implements ActionListener {
     JFrame polyFrame;
@@ -17,6 +19,7 @@ public class PolyCipherGraphics extends MenuPage implements ActionListener {
     JTextField keyWord;
     JButton submit;
     SuperCipher superCipher;
+
 
     public PolyCipherGraphics() {
         polyFrame = new JFrame();
@@ -100,11 +103,13 @@ public class PolyCipherGraphics extends MenuPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
             String toBeEncrypted = acceptInput.getText().trim();
+            MenuPage.addListInput(toBeEncrypted);
             String number = keyWord.getText().trim();
-            superCipher.getPolyCipher().setAll(toBeEncrypted, number);
-            superCipher.getPolyCipher().keywordgenerator();
-            System.out.println(superCipher.getPolyCipher().cipher());
-            outputMessage.setText(superCipher.getPolyCipher().cipher());
+            int i = superCipher.addPolyCipher();
+            superCipher.getPolyCipher(i).setAll(toBeEncrypted, number);
+            superCipher.getPolyCipher(i).keywordgenerator();
+            MenuPage.addListOutput(superCipher.getPolyCipher(i).cipher());
+            outputMessage.setText(superCipher.getPolyCipher(i).cipher());
             outputMessage.setVisible(true);
 
         }

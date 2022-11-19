@@ -8,14 +8,25 @@ import java.awt.event.ActionListener;
 public class HomePage extends JFrame implements ActionListener {
     JButton button;
     JButton end;
+    JLabel label;
 
     public HomePage() {
 
+        makeEndButton();
+        makeStartButton();
+        makeCipherLabel();
+        addAllComponents();
+        init();
+    }
+
+    public void makeEndButton() {
         end = new JButton();
         end.setBounds(700, 450, 50, 20);
         end.addActionListener(e -> System.exit(0));
         end.setText("Exit");
-        JLabel label = new JLabel();
+    }
+
+    public void makeStartButton() {
         button = new JButton();
         button.setBounds(350, 250, 100, 60);
         button.setFocusable(false);
@@ -23,23 +34,29 @@ public class HomePage extends JFrame implements ActionListener {
         button.addActionListener(this);
         button.setFont(new Font("Comic Sans MS", Font.ITALIC, 25));
 
+    }
+
+    public void makeCipherLabel() {
         label = new JLabel();
         label.setText("Welcome to the Cipher Text Generator");
         label.setBounds(200, 0, 500, 50);
         label.setVerticalAlignment(JLabel.TOP);
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setVisible(true);
+    }
 
-
-        setSize(800, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public void addAllComponents() {
         add(label);
         add(button);
         add(end);
+
+    }
+
+    public void init() {
+        setSize(800, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setVisible(true);
-
-
     }
 
     @Override

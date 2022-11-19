@@ -126,8 +126,9 @@ public class CipherTextGenerator {
         String moveBy = sc.next();
         System.out.println("Shifting all the letters " + moveBy + " places");
         System.out.println("The original text is " + toBeEncrypted);
-        superCipher.getSubCipher().setAll(toBeEncrypted, moveBy);
-        String result = superCipher.getSubCipher().cipher();
+        int i = superCipher.addSubCipher();
+        superCipher.getSubCipher(i).setAll(toBeEncrypted,moveBy);
+        String result = superCipher.getSubCipher(i).cipher();
         System.out.println("The encrypted text is " + result);
         return result;
     }
@@ -163,9 +164,10 @@ public class CipherTextGenerator {
         toBeEncrypted = toBeEncrypted.toUpperCase();
         keyword = keyword.toUpperCase();
         System.out.println("The original text is " + toBeEncrypted);
-        superCipher.getPolyCipher().setAll(toBeEncrypted, keyword);
-        System.out.println("The keyword array is " + superCipher.getPolyCipher().keywordgenerator());
-        String result = superCipher.getPolyCipher().cipher();
+        int i = superCipher.addPolyCipher();
+        superCipher.getPolyCipher(i).setAll(toBeEncrypted, keyword);
+        System.out.println("The keyword array is " + superCipher.getPolyCipher(i).keywordgenerator());
+        String result = superCipher.getPolyCipher(i).cipher();
         System.out.println("The encrypted text is" + result);
         return result;
     }
@@ -197,9 +199,10 @@ public class CipherTextGenerator {
         toBeDencrypted = toBeDencrypted.toUpperCase();
         keyword = keyword.toUpperCase();
         System.out.println("The original text is " + toBeDencrypted);
-        superCipher.getPolyDeCipher().setAll(toBeDencrypted, keyword);
-        System.out.println("The keyword array is " + superCipher.getPolyDeCipher().keywordgenerator());
-        String result = superCipher.getPolyDeCipher().cipher();
+        int i = superCipher.addPolyDecipher();
+        superCipher.getPolyDeCipher(i).setAll(toBeDencrypted, keyword);
+        System.out.println("The keyword array is " + superCipher.getPolyDeCipher(i).keywordgenerator());
+        String result = superCipher.getPolyDeCipher(i).cipher();
         System.out.println("The encrypted text is" + result);
         return result;
     }
@@ -216,8 +219,8 @@ public class CipherTextGenerator {
         System.out.println("Shifting all the letters " + moveBy + " places");
         System.out.println("The original text is " + toBeEncrypted);
         System.out.println("The original text is " + toBeEncrypted);
-        superCipher.getSubCipher().setAll(toBeEncrypted, moveBy);
-        String result = superCipher.getSubCipher().cipher();
+        int i = superCipher.addSubCipher();
+        String result = superCipher.getSubCipher(i).cipher();
         System.out.println("The encrypted text is " + result);
         return result;
     }

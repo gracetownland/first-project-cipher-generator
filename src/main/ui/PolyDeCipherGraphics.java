@@ -100,11 +100,13 @@ public class PolyDeCipherGraphics extends MenuPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
             String toBeEncrypted = acceptInput.getText().trim();
+            MenuPage.addListInput(toBeEncrypted);
             String number = keyWord.getText().trim();
-            superCipher.getPolyDeCipher().setAll(toBeEncrypted, number.toUpperCase());
-            superCipher.getPolyDeCipher().keywordgenerator();
-            System.out.println(superCipher.getPolyDeCipher().cipher());
-            outputMessage.setText(superCipher.getPolyDeCipher().cipher());
+            int i = superCipher.addPolyCipher();
+            superCipher.getPolyDeCipher(i).setAll(toBeEncrypted, number.toUpperCase());
+            superCipher.getPolyDeCipher(i).keywordgenerator();
+            MenuPage.addListOutput(superCipher.getPolyDeCipher(i).cipher());
+            outputMessage.setText(superCipher.getPolyDeCipher(i).cipher());
             outputMessage.setVisible(true);
 
         }

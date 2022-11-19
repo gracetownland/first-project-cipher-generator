@@ -1,11 +1,19 @@
 package ui;
 
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
-        //new CipherTextGenerator();
-        new HomePage();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Type in GUI for Graphical User Interface or CUI for Console Interface ");
+        String choice = sc.next();
+        if (choice.equals("CUI")) {
+            new CipherTextGenerator();
+        } else if (choice.equalsIgnoreCase("GUI")) {
+            new HomePage();
+        }
+
 
     }
 }
-//move the if statement to a seperate line
-//change static to non static

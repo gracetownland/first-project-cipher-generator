@@ -99,9 +99,10 @@ public class HillCipherGraphics extends MenuPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
             String toBeEncrypted = acceptInput.getText();
+            MenuPage.addListInput(toBeEncrypted);
             String number = moveBy.getText();
             superCipher.getHillCipher().setAll(toBeEncrypted, number);
-            System.out.println(superCipher.getHillCipher().cipher());
+            MenuPage.addListOutput(superCipher.getHillCipher().cipher());
             outputMessage.setText(superCipher.getHillCipher().cipher());
             outputMessage.setVisible(true);
 
