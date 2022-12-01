@@ -86,15 +86,11 @@ public class CipherTextGenerator {
             }
             if (ch == 8) {
                 System.out.println(listInput.toString());
-                EventLog.getInstance().logEvent(new Event("User input printed to console"));
             }
             if (ch == 9) {
-                EventLog.getInstance().logEvent(new Event("User output printed to console"));
                 System.out.println(listOutput.toString());
             }
             if (ch == 7) {
-                EventLog.getInstance().logEvent(new Event(toBeEncrypted + " has been saved as user input"));
-                EventLog.getInstance().logEvent(new Event("User output has been saved"));
                 writer.write(listInput, listOutput);
             }
 

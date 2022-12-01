@@ -1,5 +1,7 @@
 package persistence;
 
+import model.Event;
+import model.EventLog;
 import model.SuperCipher;
 import org.json.JSONObject;
 
@@ -26,6 +28,7 @@ public class JsonWriter {
     }
 
     public void write(ArrayList<String> in, ArrayList<String> out) {
+        EventLog.getInstance().logEvent(new Event("Data has been written to file"));
         JSONObject obj = new JSONObject();
         obj.put("UI", in);
         obj.put("OUT", out);

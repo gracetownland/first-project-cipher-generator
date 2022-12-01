@@ -10,7 +10,8 @@ public class KeyWordCipher extends Cipher {
     public void setAll(String toBeEncrypted, String keyword) {
         encoded = encoder(keyword.toCharArray());
         this.toBeEncrypted = toBeEncrypted;
-        EventLog.getInstance().logEvent(new Event("Key Word Cipher Class has accepted the parameters"));
+        String message = "Key Word Cipher accepted " + toBeEncrypted + " and " + keyword + " as parameters";
+        EventLog.getInstance().logEvent(new Event(message));
     }
 
 
@@ -19,6 +20,7 @@ public class KeyWordCipher extends Cipher {
     EFFECTS: adds the keyword in front of the alphabets which havent been used in the keyword.
      */
     public String encoder(char[] key) {
+        EventLog.getInstance().logEvent(new Event("Key Word Cipher Array has been created"));
         StringBuilder code = new StringBuilder();
 
 
@@ -47,7 +49,6 @@ public class KeyWordCipher extends Cipher {
                 code.append((char) (i + 65));
             }
         }
-        EventLog.getInstance().logEvent(new Event("Key Word Cipher Array has been created"));
         return code.toString();
     }
 
@@ -69,8 +70,9 @@ public class KeyWordCipher extends Cipher {
             }
 
         }
-        EventLog.getInstance().logEvent(new Event("Key Word Cipher has been completed"));
-        return cipher.toString();
+        String result = cipher.toString();
+        EventLog.getInstance().logEvent(new Event("Key Word Cipher has been completed with result " + result));
+        return result;
     }
 
     public String getEncoded() {

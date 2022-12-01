@@ -17,7 +17,4 @@ public class ConsoleLogPrinter {
 
     }
 
-//    public static void main(String[] args) {
-//        printLog(EventLog.getInstance());
-//    }
 }

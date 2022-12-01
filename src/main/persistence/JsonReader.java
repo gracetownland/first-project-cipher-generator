@@ -30,6 +30,7 @@ public class JsonReader {
     }
 
     public ArrayList buildUserInput() {
+
         ArrayList<String> in = new ArrayList<>();
         String json = null;
         try {

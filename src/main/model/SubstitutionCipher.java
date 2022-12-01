@@ -10,8 +10,8 @@ public class SubstitutionCipher extends Cipher {
     public void setAll(String toBeEncrypt, String moveBy) {
         this.toBeEncrypt = toBeEncrypt;
         this.moveBy = Integer.parseInt(moveBy);
-        EventLog.getInstance().logEvent(new Event("Substitution Cipher Class has accepted the parameters"));
-
+        String message = "Substitution Cipher accepted " + toBeEncrypt + " and " + moveBy + " as parameters";
+        EventLog.getInstance().logEvent(new Event(message));
         //cipher();
     }
 
@@ -37,9 +37,9 @@ public class SubstitutionCipher extends Cipher {
         for (int i = 0; i < toBeEncrypt.length(); i++) {
             encrypted.append(a[i]);
         }
-        ciphered = encrypted.toString().toUpperCase();
-        EventLog.getInstance().logEvent(new Event("Substitution Cipher has been completed"));
-        return ciphered;
+        String result = encrypted.toString();
+        EventLog.getInstance().logEvent(new Event("Poly Alphabetic Cipher has been completed with result " + result));
+        return result;
     }
 
 

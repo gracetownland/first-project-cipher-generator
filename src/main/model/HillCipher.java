@@ -10,13 +10,15 @@ public class HillCipher extends Cipher {
     public void setAll(String toBeEncrypted, String keyword) {
         this.toBeEncrypted = toBeEncrypted;
         this.keyword = keyword;
-
+        String message = "Hill Cipher accepted " + toBeEncrypted + " and " + keyword + " as parameters";
+        EventLog.getInstance().logEvent(new Event(message));
     }
 
 
     /*  MODIFIES: this
      *   EFFECTS:key matrix is genetated*/
     public void getMatrixKey(String keyword, int[][] matrixKey) {
+        EventLog.getInstance().logEvent(new Event("Matrix Key has been created in Hill Cipher"));
         int a = 0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -32,6 +34,7 @@ public class HillCipher extends Cipher {
         EFFECTS: encrypts the message using matrixKey
      */
     public void encrypt(int[][] matrixCipher, int[][] matrixKey, int[][] message) {
+        EventLog.getInstance().logEvent(new Event("Message has been encrypted in Hill Cipher Method"));
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 1; j++) {
                 matrixCipher[i][j] = 0;
@@ -60,8 +63,9 @@ public class HillCipher extends Cipher {
         for (int i = 0; i < 5; i++) {
             cipherText.append((char) (matrixCipher[i][0] + 65));
         }
-        EventLog.getInstance().logEvent(new Event("Hill Cipher has been completed"));
-        return cipherText.toString();
+        String result = cipherText.toString();
+        EventLog.getInstance().logEvent(new Event("Hill Cipher has been completed with result " + result));
+        return result;
     }
 
 

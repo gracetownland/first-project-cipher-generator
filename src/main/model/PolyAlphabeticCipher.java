@@ -8,7 +8,9 @@ public class PolyAlphabeticCipher extends Cipher {
     public void setAll(String toBeEncrypted, String keyword) {
         this.toBeEncrypted = toBeEncrypted;
         this.keyword = keyword;
-        EventLog.getInstance().logEvent(new Event("Poly Alphabetic  Cipher Class has accepted the parameters"));
+        String firstPart = "Poly Alphabetic Cipher Class has accepted";
+        String message = firstPart  + toBeEncrypted + " and " + keyword + "as the parameters";
+        EventLog.getInstance().logEvent(new Event(message));
 
 
     }
@@ -19,7 +21,7 @@ public class PolyAlphabeticCipher extends Cipher {
        EFFECTS:returns keyword repeated until same length as message
        */
     public String keywordgenerator() {
-
+        EventLog.getInstance().logEvent(new Event("Keyword has been generated"));
         StringBuilder keywordBuilder = new StringBuilder(keyword);
         for (int i = 0; ; i++) {
 
@@ -29,7 +31,6 @@ public class PolyAlphabeticCipher extends Cipher {
             keywordBuilder.append(keywordBuilder.charAt(i));
         }
         keyword = keywordBuilder.toString();
-        EventLog.getInstance().logEvent(new Event("Keyword has been generated"));
         return keyword;
     }
 
@@ -40,14 +41,16 @@ public class PolyAlphabeticCipher extends Cipher {
     */
 
     public String cipher() {
+
         StringBuilder encrypted = new StringBuilder();
         for (int i = 0; i < toBeEncrypted.length(); i++) {
             int x = (toBeEncrypted.charAt(i) + keyword.charAt(i)) % 26;
             x += 65;
             encrypted.append((char) x);
         }
-        EventLog.getInstance().logEvent(new Event("Poly Alphabetic Cipher has been completed"));
-        return encrypted.toString();
+        String result = encrypted.toString();
+        EventLog.getInstance().logEvent(new Event("Poly Alphabetic Cipher has been completed with result " + result));
+        return result;
     }
 
     /*
