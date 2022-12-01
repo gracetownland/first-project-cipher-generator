@@ -32,6 +32,7 @@ public class PolyAlphabeticDeCipher extends Cipher {
             x += 65;
             original.append((char) x);
         }
+        EventLog.getInstance().logEvent(new Event("Poly Alphabetic Decipher has been completed"));
         return original.toString();
     }
 }

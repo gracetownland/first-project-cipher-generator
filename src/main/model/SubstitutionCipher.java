@@ -36,6 +36,7 @@ public class SubstitutionCipher extends Cipher {
             encrypted.append(a[i]);
         }
         ciphered = encrypted.toString().toUpperCase();
+        EventLog.getInstance().logEvent(new Event("Substitution Cipher has been completed"));
         return ciphered;
     }
 

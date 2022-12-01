@@ -59,8 +59,6 @@ public class KeyWordCipher extends Cipher {
      */
     public String cipher() {
         StringBuilder cipher = new StringBuilder();
-
-
         for (int i = 0; i < toBeEncrypted.length(); i++) {
             if (toBeEncrypted.charAt(i) >= 'a' && toBeEncrypted.charAt(i) <= 'z') {
                 int pos = toBeEncrypted.charAt(i) - 97;
@@ -72,6 +70,7 @@ public class KeyWordCipher extends Cipher {
                 cipher.append(toBeEncrypted.charAt(i));
             }
         }
+        EventLog.getInstance().logEvent(new Event("Key Word Cipher has been completed"));
         return cipher.toString();
     }
 

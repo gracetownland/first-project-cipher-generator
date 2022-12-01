@@ -1,5 +1,7 @@
 package ui;
 
+import model.EventLog;
+
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +15,8 @@ public class Main {
         } else if (choice.equalsIgnoreCase("GUI")) {
             new HomePage();
         }
-
+        System.out.println("EVENT LOG");
+        ConsoleLogPrinter.printLog(EventLog.getInstance());
 
     }
 }

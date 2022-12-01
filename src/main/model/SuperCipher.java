@@ -7,17 +7,17 @@ public class SuperCipher {
     private ArrayList<Cipher> ciphers;
 
     public SuperCipher() {
-        SubstitutionCipher sub = new SubstitutionCipher();
-        PolyAlphabeticCipher poly = new PolyAlphabeticCipher();
-        PolyAlphabeticDeCipher dePoly = new PolyAlphabeticDeCipher();
-        KeyWordCipher key = new KeyWordCipher();
-        HillCipher hill = new HillCipher();
+//        SubstitutionCipher sub = new SubstitutionCipher();
+//        PolyAlphabeticCipher poly = new PolyAlphabeticCipher();
+//        PolyAlphabeticDeCipher dePoly = new PolyAlphabeticDeCipher();
+//        KeyWordCipher key = new KeyWordCipher();
+//        HillCipher hill = new HillCipher();
         ciphers = new ArrayList<>();
-        ciphers.add(sub);
-        ciphers.add(poly);
-        ciphers.add(dePoly);
-        ciphers.add(key);
-        ciphers.add(hill);
+//        ciphers.add(sub);
+//        ciphers.add(poly);
+//        ciphers.add(dePoly);
+//        ciphers.add(key);
+//        ciphers.add(hill);
     }
 
     public int addSubCipher() {

@@ -45,6 +45,7 @@ public class PolyAlphabeticCipher extends Cipher {
             x += 65;
             encrypted.append((char) x);
         }
+        EventLog.getInstance().logEvent(new Event("Poly Alphabetic Cipher has been completed"));
         return encrypted.toString();
     }
 
