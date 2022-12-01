@@ -60,6 +60,7 @@ public class HillCipher extends Cipher {
         for (int i = 0; i < 5; i++) {
             cipherText.append((char) (matrixCipher[i][0] + 65));
         }
+        EventLog.getInstance().logEvent(new Event("Hill Cipher has been completed"));
         return cipherText.toString();
     }
 
