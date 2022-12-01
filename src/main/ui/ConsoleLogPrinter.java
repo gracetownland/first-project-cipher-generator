@@ -7,7 +7,7 @@ public class ConsoleLogPrinter {
 
     public static void printLog(EventLog el) {
         for (Event next : el) {
-            if (next.toString().isBlank()) {
+            if (next.toString().isEmpty()) {
                 System.out.println("Nothting logged");
                 break;
             }
