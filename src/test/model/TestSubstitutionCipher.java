@@ -9,10 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestSubstitutionCipher {
     SubstitutionCipher cipher;
     SuperCipher superCipher = new SuperCipher();
+    int i;
 
     @BeforeEach
     void setup() {
         //cipher=new SubstitutionCipher();
+        i = superCipher.addSubCipher();
     }
 
     @Test
@@ -21,7 +23,7 @@ class TestSubstitutionCipher {
         String moveBy = "1";
         int i = superCipher.addSubCipher();
         superCipher.getSubCipher(i).setAll(toBeEncrypted, moveBy);
-        assertEquals("BCDEFG", superCipher.getSubCipher(i).cipher());
+        assertEquals("bcdefg", superCipher.getSubCipher(i).cipher());
     }
 
     @Test
@@ -30,7 +32,7 @@ class TestSubstitutionCipher {
         String moveBy = "1";
         int i = superCipher.addSubCipher();
         superCipher.getSubCipher(i).setAll(toBeEncrypted, moveBy);
-        assertEquals("BCDEFG", superCipher.getSubCipher(i).cipher());
+        assertEquals("bcdefg", superCipher.getSubCipher(i).cipher());
     }
 
     @Test
@@ -51,7 +53,7 @@ class TestSubstitutionCipher {
         int i3 = superCipher.addSubCipher();
         superCipher.getSubCipher(i3).setAll(toBeEncrypted4, moveBy);
         String unEncrypted = superCipher.getSubCipher(i3).cipher();
-        assertEquals("EFGHIJ", unEncrypted);
+        assertEquals("efghij", unEncrypted);
     }
 
     @Test
@@ -60,7 +62,7 @@ class TestSubstitutionCipher {
         String moveBy = Integer.toString(-1);
         int i = superCipher.addSubCipher();
         superCipher.getSubCipher(i).setAll(toBeEncrypted, moveBy);
-        assertEquals("ABCDEF",superCipher.getSubCipher(i).cipher());
+        assertEquals("abcdef",superCipher.getSubCipher(i).cipher());
     }
 
 }

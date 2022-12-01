@@ -13,7 +13,7 @@ public class TestKeyWordCipher {
     @BeforeEach
     void setup(){
        // cipher=new KeyWordCipher();
-         i = superCipher.addPolyCipher();
+         i = superCipher.addKeyCipher();
 
     }
 
