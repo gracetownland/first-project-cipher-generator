@@ -86,11 +86,15 @@ public class CipherTextGenerator {
             }
             if (ch == 8) {
                 System.out.println(listInput.toString());
+                EventLog.getInstance().logEvent(new Event("User input printed to console"));
             }
             if (ch == 9) {
+                EventLog.getInstance().logEvent(new Event("User output printed to console"));
                 System.out.println(listOutput.toString());
             }
             if (ch == 7) {
+                EventLog.getInstance().logEvent(new Event(toBeEncrypted + " has been saved as user input"));
+                EventLog.getInstance().logEvent(new Event("User output has been saved"));
                 writer.write(listInput, listOutput);
             }
 
@@ -138,16 +142,16 @@ public class CipherTextGenerator {
       */
 
     public String keycipher(String toBeEncrypted) {
-
+        int i = superCipher.addKeyCipher();
         System.out.println("KEYWORD CIPHER");
         System.out.println("enter keyword ");
         String keyword = sc.next();
-        superCipher.getKeyCipher().setAll(toBeEncrypted, keyword);
-        System.out.println("The Keyword array is" + superCipher.getKeyCipher().getEncoded());
+        superCipher.getKeyCipher(i).setAll(toBeEncrypted, keyword);
+        System.out.println("The Keyword array is" + superCipher.getKeyCipher(i).getEncoded());
         System.out.println("Swapping letters of message with keyword array....");
         System.out.println("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        System.out.println(superCipher.getKeyCipher().getEncoded());
-        String result = superCipher.getKeyCipher().cipher();
+        System.out.println(superCipher.getKeyCipher(i).getEncoded());
+        String result = superCipher.getKeyCipher(i).cipher();
         System.out.println("The encrypted text is " + result);
         return result;
     }
@@ -177,12 +181,12 @@ public class CipherTextGenerator {
       */
 
     public String hillcipher(String toBeEncrypted) {
-
+        int i = superCipher.addHillCipher();
         System.out.println("HILL CIPHER");
         System.out.println("enter keyword ");
         String keyword = sc.next();
-        superCipher.getHillCipher().setAll(toBeEncrypted, keyword);
-        String result = superCipher.getHillCipher().cipher();
+        superCipher.getHillCipher(i).setAll(toBeEncrypted, keyword);
+        String result = superCipher.getHillCipher(i).cipher();
         System.out.println("The encrypted text is" + result);
         return result;
     }

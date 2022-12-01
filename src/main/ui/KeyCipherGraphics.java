@@ -99,12 +99,13 @@ public class KeyCipherGraphics extends MenuPage implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
+            int i = superCipher.addKeyCipher();
             String toBeEncrypted = acceptInput.getText();
             MenuPage.addListInput(toBeEncrypted);
             String number = keyWord.getText();
-            superCipher.getKeyCipher().setAll(toBeEncrypted, number);
-            MenuPage.addListOutput(superCipher.getKeyCipher().cipher());
-            outputMessage.setText(superCipher.getKeyCipher().cipher());
+            superCipher.getKeyCipher(i).setAll(toBeEncrypted, number);
+            MenuPage.addListOutput(superCipher.getKeyCipher(i).cipher());
+            outputMessage.setText(superCipher.getKeyCipher(i).cipher());
             outputMessage.setVisible(true);
 
         }

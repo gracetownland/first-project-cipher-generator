@@ -35,6 +35,17 @@ public class SuperCipher {
         return ciphers.size() - 1;
     }
 
+    public int addKeyCipher() {
+        ciphers.add(new KeyWordCipher());
+        return ciphers.size() - 1;
+    }
+
+    public int addHillCipher() {
+        ciphers.add(new HillCipher());
+        return ciphers.size() - 1;
+    }
+
+
 
     public SubstitutionCipher getSubCipher(int i) {
         return (SubstitutionCipher) this.ciphers.get(i);
@@ -48,12 +59,12 @@ public class SuperCipher {
         return (PolyAlphabeticDeCipher) this.ciphers.get(i);
     }
 
-    public KeyWordCipher getKeyCipher() {
-        return (KeyWordCipher) this.ciphers.get(3);
+    public KeyWordCipher getKeyCipher(int i) {
+        return (KeyWordCipher) this.ciphers.get(i);
     }
 
-    public HillCipher getHillCipher() {
-        return (HillCipher) this.ciphers.get(4);
+    public HillCipher getHillCipher(int i) {
+        return (HillCipher) this.ciphers.get(i);
     }
     /*
     make method cipher and extend it to every cipher class

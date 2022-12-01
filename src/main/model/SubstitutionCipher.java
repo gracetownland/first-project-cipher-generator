@@ -10,6 +10,8 @@ public class SubstitutionCipher extends Cipher {
     public void setAll(String toBeEncrypt, String moveBy) {
         this.toBeEncrypt = toBeEncrypt;
         this.moveBy = Integer.parseInt(moveBy);
+        EventLog.getInstance().logEvent(new Event("Substitution Cipher Class has accepted the parameters"));
+
         //cipher();
     }
 

@@ -8,37 +8,38 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestKeyWordCipher {
     KeyWordCipher cipher;
     SuperCipher superCipher = new SuperCipher();
-
+    int i;
 
     @BeforeEach
     void setup(){
        // cipher=new KeyWordCipher();
+         i = superCipher.addPolyCipher();
+
     }
 
     @Test
     void testKeyWordCipherSimple(){
-
-        String keyword =  superCipher.getKeyCipher().encoder("thisiscool".toCharArray());
+        String keyword =  superCipher.getKeyCipher(i).encoder("thisiscool".toCharArray());
         String toBeEncrypted = "ayushfeelsverycoolbutwantsto";
-        superCipher.getKeyCipher().setAll(toBeEncrypted,keyword);
-        assertEquals(keyword, superCipher.getKeyCipher().getEncoded());
+        superCipher.getKeyCipher(i).setAll(toBeEncrypted,keyword);
+        assertEquals(keyword, superCipher.getKeyCipher(i).getEncoded());
 
-        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK",superCipher.getKeyCipher().cipher());
+        assertEquals("TYUQAOCCFQVCPYIKKFHURWTJRQRK",superCipher.getKeyCipher(i).cipher());
     }
 
     @Test
     void testKeyWordCipherSimpleCAPS() {
-        String keyword = superCipher.getKeyCipher().encoder("THISISCOOL".toCharArray());
+        String keyword = superCipher.getKeyCipher(i).encoder("THISISCOOL".toCharArray());
         String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO";
-        superCipher.getKeyCipher().setAll(toBeEncrypted,keyword);
-        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", superCipher.getKeyCipher().cipher());
+        superCipher.getKeyCipher(i).setAll(toBeEncrypted,keyword);
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK", superCipher.getKeyCipher(i).cipher());
     }
     @Test
     void testKeyWordCipherSpecialChar() {
-        String keyword = superCipher.getKeyCipher().encoder("thisiscool".toCharArray());
+        String keyword = superCipher.getKeyCipher(i).encoder("thisiscool".toCharArray());
         String toBeEncrypted = "AYUSHFEELVERYCOOLBUTWANTSTO$";
-        superCipher.getKeyCipher().setAll(toBeEncrypted,keyword);
-        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK$", superCipher.getKeyCipher().cipher());
+        superCipher.getKeyCipher(i).setAll(toBeEncrypted,keyword);
+        assertEquals("TYUQAOCCFVCPYIKKFHURWTJRQRK$", superCipher.getKeyCipher(i).cipher());
     }
 
 }

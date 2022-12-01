@@ -10,13 +10,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Type in GUI for Graphical User Interface or CUI for Console Interface ");
         String choice = sc.next();
-        if (choice.equals("CUI")) {
+        if (choice.equalsIgnoreCase("CUI")) {
             new CipherTextGenerator();
+            System.out.println("EVENT LOG");
+            ConsoleLogPrinter.printLog(EventLog.getInstance());
         } else if (choice.equalsIgnoreCase("GUI")) {
             new HomePage();
         }
-        System.out.println("EVENT LOG");
-        ConsoleLogPrinter.printLog(EventLog.getInstance());
+
 
     }
 }

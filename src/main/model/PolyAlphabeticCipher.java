@@ -8,6 +8,7 @@ public class PolyAlphabeticCipher extends Cipher {
     public void setAll(String toBeEncrypted, String keyword) {
         this.toBeEncrypted = toBeEncrypted;
         this.keyword = keyword;
+        EventLog.getInstance().logEvent(new Event("Poly Alphabetic  Cipher Class has accepted the parameters"));
 
 
     }
@@ -28,7 +29,7 @@ public class PolyAlphabeticCipher extends Cipher {
             keywordBuilder.append(keywordBuilder.charAt(i));
         }
         keyword = keywordBuilder.toString();
-
+        EventLog.getInstance().logEvent(new Event("Keyword has been generated"));
         return keyword;
     }
 

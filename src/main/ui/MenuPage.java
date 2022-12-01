@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -145,7 +147,7 @@ public class MenuPage extends JFrame implements ActionListener {
     public void makeEndButton() {
         end = new JButton();
         end.setBounds(700, 450, 50, 20);
-        end.addActionListener(e -> System.exit(0));
+        end.addActionListener(this);
         end.setText("Exit");
     }
 
@@ -172,6 +174,11 @@ public class MenuPage extends JFrame implements ActionListener {
         if (e.getSource() == saveData) {
             System.out.println("saving data");
             writer.write(listInput, listOutput);
+        }
+        if (e.getSource() == end) {
+            System.out.println("EVENT LOG");
+            ConsoleLogPrinter.printLog(EventLog.getInstance());
+            System.exit(0);
         }
 
     }
@@ -203,9 +210,11 @@ public class MenuPage extends JFrame implements ActionListener {
 
     public static void addListInput(String toBeEncrypted) {
         listInput.add(toBeEncrypted);
+        EventLog.getInstance().logEvent(new Event(toBeEncrypted + " has been saved as user input"));
     }
 
     public static void addListOutput(String cipher) {
+        EventLog.getInstance().logEvent(new Event(cipher + " has been saved as user output"));
         listOutput.add(cipher);
     }
 }

@@ -98,12 +98,13 @@ public class HillCipherGraphics extends MenuPage implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
+            int i = superCipher.addHillCipher();
             String toBeEncrypted = acceptInput.getText();
             MenuPage.addListInput(toBeEncrypted);
             String number = moveBy.getText();
-            superCipher.getHillCipher().setAll(toBeEncrypted, number);
-            MenuPage.addListOutput(superCipher.getHillCipher().cipher());
-            outputMessage.setText(superCipher.getHillCipher().cipher());
+            superCipher.getHillCipher(i).setAll(toBeEncrypted, number);
+            MenuPage.addListOutput(superCipher.getHillCipher(i).cipher());
+            outputMessage.setText(superCipher.getHillCipher(i).cipher());
             outputMessage.setVisible(true);
 
         }

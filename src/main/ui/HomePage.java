@@ -1,5 +1,7 @@
 package ui;
 
+import model.EventLog;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -65,6 +67,10 @@ public class HomePage extends JFrame implements ActionListener {
             this.dispose();
             System.out.println("this works.");
             new MenuPage();
+        }
+        if (e.getSource() == end) {
+            System.out.println("EVENT LOG");
+            ConsoleLogPrinter.printLog(EventLog.getInstance());
         }
     }
 
