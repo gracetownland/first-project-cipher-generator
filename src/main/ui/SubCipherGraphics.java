@@ -103,8 +103,9 @@ public class SubCipherGraphics extends MenuPage implements ActionListener {
             String number = moveBy.getText();
             int i = superCipher.addSubCipher();
             superCipher.getSubCipher(i).setAll(toBeEncrypted, number);
-            MenuPage.addListOutput(superCipher.getSubCipher(i).cipher());
-            outputMessage.setText(superCipher.getSubCipher(i).cipher());
+            String result = superCipher.getSubCipher(i).cipher();
+            MenuPage.addListOutput(result);
+            outputMessage.setText(result);
             outputMessage.setVisible(true);
 
         }

@@ -38,7 +38,7 @@ public class SubstitutionCipher extends Cipher {
             encrypted.append(a[i]);
         }
         String result = encrypted.toString();
-        EventLog.getInstance().logEvent(new Event("Poly Alphabetic Cipher has been completed with result " + result));
+        EventLog.getInstance().logEvent(new Event("Substitution Cipher has been completed with result " + result));
         return result;
     }
 

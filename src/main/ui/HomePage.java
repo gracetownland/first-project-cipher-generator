@@ -65,7 +65,6 @@ public class HomePage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
             this.dispose();
-            System.out.println("this works.");
             new MenuPage();
         }
         if (e.getSource() == end) {

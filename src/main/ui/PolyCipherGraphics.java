@@ -108,8 +108,9 @@ public class PolyCipherGraphics extends MenuPage implements ActionListener {
             int i = superCipher.addPolyCipher();
             superCipher.getPolyCipher(i).setAll(toBeEncrypted, number);
             superCipher.getPolyCipher(i).keywordgenerator();
-            MenuPage.addListOutput(superCipher.getPolyCipher(i).cipher());
-            outputMessage.setText(superCipher.getPolyCipher(i).cipher());
+            String result = superCipher.getPolyDeCipher(i).cipher();
+            MenuPage.addListOutput(result);
+            outputMessage.setText(result);
             outputMessage.setVisible(true);
 
         }

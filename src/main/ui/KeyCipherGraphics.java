@@ -104,8 +104,9 @@ public class KeyCipherGraphics extends MenuPage implements ActionListener {
             MenuPage.addListInput(toBeEncrypted);
             String number = keyWord.getText();
             superCipher.getKeyCipher(i).setAll(toBeEncrypted, number);
-            MenuPage.addListOutput(superCipher.getKeyCipher(i).cipher());
-            outputMessage.setText(superCipher.getKeyCipher(i).cipher());
+            String result = superCipher.getKeyCipher(i).cipher();
+            MenuPage.addListOutput(result);
+            outputMessage.setText(result);
             outputMessage.setVisible(true);
 
         }

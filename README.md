@@ -26,3 +26,16 @@ Any individual who wants to implement basic cipher techniques for their messages
 - You can locate my visual component by hitting the start button, which will prompt a new window to open with multiple cipher options plus an image of a cipher
 - You can save the state of my application by hitting the Save data radio button
 - You can reload the state of my application by hitting the Load data radio button
+
+# Phase 4 Task 2 
+![alt text](phase4.png)
+
+# Phase 4 Task 3
+
+![](phase4task3.png)
+
+# Refactoring I would do to improve my design
+
+- I would remove the writable interface
+- I would change the call of EventLog to the abstract class cipher instead of calling it in every cipher class
+- I would make a Graphics super class and make every graphics class extend it, and add the repeated code there to remove repeated code.
