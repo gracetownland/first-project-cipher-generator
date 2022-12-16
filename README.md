@@ -1,7 +1,7 @@
 # My Personal Project
 This project will be a Cipher text generator.
 #### Motivation behind the project
-I've always been interested in cryptography and encryption, and I thought I'd take a shot at it for my CPSC210 class:)
+I've always been interested in cryptography and encryption, and I thought I'd take a shot at it as my first project.
 
 ## Who would use this project?
 Any individual who wants to implement basic cipher techniques for their messages
@@ -19,7 +19,7 @@ Any individual who wants to implement basic cipher techniques for their messages
 - AS a user, I want to be able to load my previous generated cipher's from file.
 
 
-# Instructions for Grader
+# Instructions for Usage
 
 - You can generate the first required event related to adding Xs to a Y by clicking on any of the radio buttons and ciphering some text
 - You can generate the second required event related to adding Xs to a Y by hitting the Load Data radio button which will display all of the previously saved ciphers. (Do note : You must save some data first for this to display anything)
@@ -27,10 +27,10 @@ Any individual who wants to implement basic cipher techniques for their messages
 - You can save the state of my application by hitting the Save data radio button
 - You can reload the state of my application by hitting the Load data radio button
 
-# Phase 4 Task 2 
+# Test Run of JSon 
 ![alt text](phase4.png)
 
-# Phase 4 Task 3
+# UML Diagram
 
 ![](phase4task3.png)
 
